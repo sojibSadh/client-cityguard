@@ -61,11 +61,6 @@ p {
     font-family: "Roboto", sans-serif;
 }
 
-.newJob label,
-.profile label {
-    @apply font-medium text-blue-800 dark:text-gray-300
-}
-
 
 .dashboard-li{
     @apply p-3 text-gray-300 rounded-lg font-bold hover:text-primary  hover:bg-[#1D262A] is-drawer-close:tooltip is-drawer-close:tooltip-right;

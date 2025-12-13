@@ -14,6 +14,7 @@ import {
     FaTachometerAlt
 } from 'react-icons/fa';
 import useAuth from '../hooks/useAuth';
+import { CgProfile } from 'react-icons/cg';
 
 
 function DashboardLayout() {
@@ -61,18 +62,18 @@ function DashboardLayout() {
                                     </div>
                                     <li className="mt-3">
                                         <NavLink to={"/profile"}>
-                                             Profile
+                                            Profile
                                         </NavLink>
                                     </li>
                                     <li >
                                         <NavLink to="/myacceptedjobs">
-                                           My Accepted Jobs
+                                            My Accepted Jobs
                                         </NavLink>
                                     </li>
 
                                     <li>
                                         <a>
-                                             Settings
+                                            Settings
                                         </a>
                                     </li>
                                     <li>
@@ -120,6 +121,13 @@ function DashboardLayout() {
                                         </Link>
                                     </li>
                                     <li>
+                                        <Link to="/dashboard/adminprofile" className="dashboard-li" data-tip="Admin Dashboard ">
+                                            {/* Settings icon */}
+                                            <CgProfile className="w-5 h-5" />
+                                            <span className="is-drawer-close:hidden"> Profile</span>
+                                        </Link>
+                                    </li>
+                                    <li>
                                         <Link to="/dashboard/all-issue" className="dashboard-li" data-tip="All Issues">
                                             {/* Settings icon */}
                                             <FaClipboardList className="w-5 h-5" />
@@ -160,6 +168,13 @@ function DashboardLayout() {
                             {role?.role === "staff" && (
                                 <>
                                     <li>
+                                        <Link to="/dashboard/staff-profile" className="dashboard-li" data-tip="Profile">
+                                            {/* Settings icon */}
+                                            <FaUser className="w-5 h-5" />
+                                            <span className="is-drawer-close:hidden">Profile  </span>
+                                        </Link>
+                                    </li>
+                                    <li>
                                         <Link to="/dashboard/staff-dashboard" className="dashboard-li" data-tip="Staff Dashboard">
                                             {/* Settings icon */}
                                             <FaTachometerAlt className="w-5 h-5" />
@@ -173,48 +188,41 @@ function DashboardLayout() {
                                             <span className="is-drawer-close:hidden">Assigned Issues</span>
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link to="/dashboard/staff-profile" className="dashboard-li" data-tip="Profile">
-                                            {/* Settings icon */}
-                                            <FaUser  className="w-5 h-5"/>
-                                            <span className="is-drawer-close:hidden">Profile  </span>
-                                        </Link>
-                                    </li>
                                 </>
                             )}
                             {/* ===================== CITIZEN ROUTES ===================== */}
                             {role?.role === "citizen" && (
                                 <>
                                     <li>
-                                        <Link to="/dashboard" className="dashboard-li"  data-tip="Citizen Dashboard">
+                                        <Link to="/dashboard" className="dashboard-li" data-tip="Citizen Dashboard">
                                             {/* Settings icon */}
                                             <FaTachometerAlt className="w-5 h-5" />
                                             <span className="is-drawer-close:hidden">Citizen Dashboard </span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/dashboard/profile" className="dashboard-li"  data-tip="Profile">
+                                        <Link to="/dashboard/profile" className="dashboard-li" data-tip="Profile">
                                             {/* Settings icon */}
-                                            <FaUser className="w-5 h-5"  />
+                                            <FaUser className="w-5 h-5" />
                                             <span className="is-drawer-close:hidden">Profile  </span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/dashboard/my-issue" className="dashboard-li"  data-tip="My Issues">
+                                        <Link to="/dashboard/my-issue" className="dashboard-li" data-tip="My Issues">
                                             {/* Settings icon */}
-                                            <FaClipboardList className="w-5 h-5"  />
+                                            <FaClipboardList className="w-5 h-5" />
                                             <span className="is-drawer-close:hidden">My Issues</span>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to="/dashboard/post-issue" className="dashboard-li" data-tip="Report Issue">
                                             {/* Settings icon */}
-                                            <FaRegEdit  className="w-5 h-5" />
+                                            <FaRegEdit className="w-5 h-5" />
                                             <span className="is-drawer-close:hidden">Post Issue</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/dashboard/paymentHistoryCitizen" className="dashboard-li"  data-tip="User Limit">
+                                        <Link to="/dashboard/paymentHistoryCitizen" className="dashboard-li" data-tip="User Limit">
                                             {/* Settings icon */}
                                             <FaChartBar className="w-5 h-5" />
                                             <span className="is-drawer-close:hidden">Payment History</span>

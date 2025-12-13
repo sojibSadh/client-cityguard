@@ -5,7 +5,7 @@ import useAxiosS from "../../../hooks/useAxiousS";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 
-const StaffProfile = () => {
+const AdminProfile = () => {
     const { user, updateUserProfile } = useAuth();
     const axiosS = useAxiosS();
     const [name, setName] = useState(user?.displayName || "");
@@ -104,4 +104,4 @@ const StaffProfile = () => {
     );
 };
 
-export default StaffProfile;
+export default AdminProfile;

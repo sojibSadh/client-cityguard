@@ -28,6 +28,7 @@ import StaffAllIssues from "../pages/DashBoard/Staff/StaffAllIssues";
 import StaffRoute from "./StaffRoute";
 import StaffProfile from "../pages/DashBoard/Staff/StaffProfile";
 import StaffDashboardHome from "../pages/DashBoard/StaffDashboardHome ";
+import AdminProfile from "../pages/DashBoard/Admin/AdminProfile";
 
 
 
@@ -127,6 +128,10 @@ export const router = createBrowserRouter([
       {
         path: 'all-issue',
         element: <AdminRoute>  <AdminAllIssues /> </AdminRoute>
+      },
+      {
+        path: 'adminprofile',
+        element: <AdminRoute>  <AdminProfile/> </AdminRoute>
       },
       {
         path: 'user-management',
