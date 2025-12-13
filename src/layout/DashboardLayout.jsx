@@ -61,13 +61,13 @@ function DashboardLayout() {
                                         <li className="text-xs text-info">{user.email}</li>
                                     </div>
                                     <li className="mt-3">
-                                        <NavLink to={"/profile"}>
+                                        <NavLink >
                                             Profile
                                         </NavLink>
                                     </li>
                                     <li >
-                                        <NavLink to="/myacceptedjobs">
-                                            My Accepted Jobs
+                                        <NavLink >
+                                           All Issues
                                         </NavLink>
                                     </li>
 
@@ -117,7 +117,7 @@ function DashboardLayout() {
                                         <Link to="/dashboard" className="dashboard-li" data-tip="Admin Dashboard ">
                                             {/* Settings icon */}
                                             <FaTachometerAlt className="w-5 h-5" />
-                                            <span className="is-drawer-close:hidden">Admin Dashboard</span>
+                                            <span className="is-drawer-close:hidden">Admin</span>
                                         </Link>
                                     </li>
                                     <li>

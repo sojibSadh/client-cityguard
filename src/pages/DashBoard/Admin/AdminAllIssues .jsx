@@ -30,8 +30,6 @@ const AdminAllIssues = () => {
         }
     };
 
-
-
     if (isLoading) return <div className='flex justify-center items-center h-screen'><Bars
         height="40"
         width="40"
@@ -42,7 +40,6 @@ const AdminAllIssues = () => {
         visible={true}
     /></div>
 
-    // Helper function to get badge class based on status/priority
     const getBadgeClass = (value, type) => {
         const lowerCaseValue = value?.toLowerCase();
 
@@ -50,7 +47,7 @@ const AdminAllIssues = () => {
             if (lowerCaseValue === 'pending') return 'badge-warning';
             if (lowerCaseValue === 'resolved') return 'badge-success';
             if (lowerCaseValue === 'rejected') return 'badge-error';
-            return 'badge-info'; // Default for any other status
+            return 'badge-info';
         }
 
         if (type === 'priority') {
@@ -61,17 +58,16 @@ const AdminAllIssues = () => {
         }
     };
 
-
     return (
-        <div className="p-4 sm:p-6 bg-base-100 rounded-box shadow-xl">
-            <h2 className="text-3xl font-extrabold mb-6 text-primary">All Issues Management</h2>
+        <div className="p-4 sm:p-6 bg-dark   shadow-xl">
+            <h2 className="title mb-6 text-center">All Issues Management</h2>
 
             {/* Responsive Table Container (DaisyUI component) */}
-            <div className="overflow-x-auto border border-base-300 rounded-lg">
-                <table className="table w-full table-zebra table-lg">
-                    {/* Table Head */}
-                    <thead>
-                        <tr className="bg-base-200 text-lg text-base-content uppercase">
+            <div className="overflow-x-auto">
+                <table className="table w-full  table-lg">
+                    {/* Table Head - ADDED border-b-2 and border-gray-400 for a clear bottom border */}
+                    <thead className="tableHead">
+                        <tr className="">
                             <th>Title</th>
                             <th>Category</th>
                             <th>Status</th>
@@ -82,11 +78,11 @@ const AdminAllIssues = () => {
                     </thead>
 
                     {/* Table Body */}
-                    <tbody>
+                    <tbody >
                         {issues?.map(issue => (
-                            <tr key={issue._id} className="hover:bg-base-100 transition-colors duration-200">
-                                <td className="font-semibold text-gray-600 ">{issue.title}</td>
-                                <td><span className="badge badge-outline">{issue.category}</span></td>
+                            <tr key={issue._id} className="hover:bg-gray-400 transition-colors duration-200">
+                                <td className="font-medium text-gray-300 ">{issue.title}</td>
+                                <td><span className="text-sm">{issue.category}</span></td>
                                 <td>
                                     {issue.status === "pending" ? (
                                         <button
@@ -96,13 +92,13 @@ const AdminAllIssues = () => {
                                             Pending
                                         </button>
                                     ) : (
-                                        <span className="text-red-500 text-sm px-3 py-1 text-sm bg-gray-200 rounded">Rejected</span>
+                                        <span className="text-red-500 px-3 py-1 text-sm bg-gray-200 rounded">Rejected</span>
                                     )}
                                 </td>
 
                                 <td>
                                     {/* Priority Badge */}
-                                    <span className={`badge  text-sm px-3 py-1  ${getBadgeClass(issue.priority, 'priority')} text-xs`}>
+                                    <span className={`badge   text-sm px-3 py-1  ${getBadgeClass(issue.priority, 'priority')} text-xs`}>
                                         {issue.priority}
                                     </span>
                                 </td>

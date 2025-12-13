@@ -65,3 +65,7 @@ p {
 .dashboard-li{
     @apply p-3 text-gray-300 rounded-lg font-bold hover:text-primary  hover:bg-[#1D262A] is-drawer-close:tooltip is-drawer-close:tooltip-right;
 }
+
+.tableHead {
+    @apply  text-[18px] font-bold text-white  bg-amber-950/70
+}

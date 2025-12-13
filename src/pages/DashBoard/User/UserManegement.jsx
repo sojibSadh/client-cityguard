@@ -94,12 +94,12 @@ function UserManegement() {
                 !isLoading ? (
                     <div>
                         <div className='text-center py-5'>
-                            <div className='text-3xl'>
+                            <div className='title py-3'>
                             All Citizens -
                                 {citizens.length}
                             </div>
-                            <div>
-                                <label className="input">
+                            <div className='pt-3'>
+                                <label className="input w-[50%] bg-gray-300 text-orange-500 font-semibold">
                                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <g
                                             strokeLinejoin="round"
@@ -112,14 +112,14 @@ function UserManegement() {
                                             <path d="m21 21-4.3-4.3"></path>
                                         </g>
                                     </svg>
-                                    <input onChange={(e) => setSearchText(e.target.value)} type="search" required placeholder="Search" />
+                                    <input  onChange={(e) => setSearchText(e.target.value)} type="search" required placeholder="Search" />
                                 </label>
                             </div>
                         </div>
                         <div className="overflow-x-auto">
                             <table className="table">
                                 {/* head */}
-                                <thead>
+                                <thead className='tableHead '>
                                     <tr>
                                         <th>
                                             <label>
@@ -158,7 +158,7 @@ function UserManegement() {
                                             <div className="font-bold">{user.email} </div>
                                         </td>
                                         <td>
-                                            <div className="btn btn-dash">{user.role} </div>
+                                            <div className="btn btn-dash btn-secondary">{user.role} </div>
                                         </td>
                                         <td>
                                             {
