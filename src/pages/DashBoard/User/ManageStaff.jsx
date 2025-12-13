@@ -77,16 +77,16 @@ function ManageStaff() {
                 !isLoading ? (
                     <div>
                         <div className='text-center py-5'>
-                            <div className='text-3xl'>
-                                Staff -
-                                {staff.length}
+                            <div className='title'>
+                                Staff : <span>  {staff.length}</span>
+
                             </div>
 
                         </div>
                         <div className="overflow-x-auto">
                             <table className="table">
                                 {/* head */}
-                                <thead>
+                                <thead className='tableHead'>
                                     <tr>
                                         <th>
                                             <label>
@@ -130,14 +130,14 @@ function ManageStaff() {
                                         <td>
                                             {
                                                 user.role === 'staff' &&
-                                                    <button onClick={() => handleRemoveUser(user)} className="btn  btn-secondary" ><FaFileShield /> </button>
+                                                <button onClick={() => handleRemoveUser(user)} className="btn  btn-secondary" ><FaFileShield /> </button>
                                             }
                                         </td>
                                         <td>
                                             <div className="font-bold">
                                                 {
                                                     user.workStatus === "available" ?
-                                                        <button  className="btn btn-dash btn-secondary" > Available  </button> :
+                                                        <button className="btn btn-dash btn-secondary" > Available  </button> :
                                                         <button className="btn btn-dash btn-error"> Working </button>
                                                 }
                                             </div>
