@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "title": "Express & Standard Delivery",
+      "desc": "We deliver parcels within 24–72 hours in Dhaka, Chittagong, Sylhet, Khulna, and Rajshahi.",
+      "icon": "/service.png",
+      "bg": "bg-white"
+    },
+    {
+      "id": 2,
+      "title": "Nationwide Delivery",
+      "desc": "We deliver parcels nationwide with home delivery in every district within 48–72 hours.",
+      "icon": "service.png",
+      "bg": "bg-[#DFFFB4]"
+    },
+    {
+      "id": 3,
+      "title": "Fulfillment Solution",
+      "desc": "We offer customized services with inventory management, order processing, packing & support.",
+      "icon": "service.png",
+      "bg": "bg-white"
+    },
+    {
+      "id": 4,
+      "title": "E-commerce Delivery",
+      "desc": "Fast & secure delivery for online shops with COD support in all major districts.",
+      "icon": "service.png",
+      "bg": "bg-[#DFFFB4]"
+    },
+    {
+      "id": 5,
+      "title": "Corporate Delivery",
+      "desc": "Business parcels, documents & bulk shipments delivered with premium support.",
+      "icon": "/service.png",
+      "bg": "bg-white"
+    },
+    {
+      "id": 6,
+      "title": "International Shipping",
+      "desc": "Door-to-door worldwide shipping with customs clearance assistance.",
+      "icon": "service.png",
+      "bg": "bg-[#DFFFB4]"
+    }
+  ]
