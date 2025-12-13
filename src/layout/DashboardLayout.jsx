@@ -201,7 +201,7 @@ function DashboardLayout() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/dashboard/profile" className="dashboard-li" data-tip="Profile">
+                                        <Link to="/dashboard/citizenprofile" className="dashboard-li" data-tip="Profile">
                                             {/* Settings icon */}
                                             <FaUser className="w-5 h-5" />
                                             <span className="is-drawer-close:hidden">Profile  </span>

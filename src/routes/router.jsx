@@ -16,7 +16,7 @@ import Issues from "../pages/Issues/Issues";
 import IssuesDetails from "../pages/Issues/IssuesDetails";
 import CitizenRoute from "./citizenRoute";
 import PostIssue from "../pages/DashBoard/Citizen/PostIssue";
-import Profile from "../pages/DashBoard/Citizen/Profile";
+import Profile from "../pages/DashBoard/Citizen/CitizenProfile";
 import PaymentSuccessSub from "../pages/DashBoard/Payment/PaymentSuccessSub";
 import MyIssue from "../pages/DashBoard/Citizen/MyIssue";
 import IssuesDetailsDashboard from "../pages/Issues/IssuesDetailsDashboard";
@@ -29,6 +29,7 @@ import StaffRoute from "./StaffRoute";
 import StaffProfile from "../pages/DashBoard/Staff/StaffProfile";
 import StaffDashboardHome from "../pages/DashBoard/StaffDashboardHome ";
 import AdminProfile from "../pages/DashBoard/Admin/AdminProfile";
+import CitizenProfile from "../pages/DashBoard/Citizen/CitizenProfile";
 
 
 
@@ -81,8 +82,8 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: 'profile',
-        element: <CitizenRoute> <Profile /> </CitizenRoute>,
+        path: 'citizenprofile',
+        element: <CitizenRoute> <CitizenProfile/> </CitizenRoute>,
       },
       {
         path: 'my-issue',
