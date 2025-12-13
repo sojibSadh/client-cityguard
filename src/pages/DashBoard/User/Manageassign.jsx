@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosS from '../../../hooks/useAxiousS';
 import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 function AssignIssue() {
     const axiosS = useAxiosS();
@@ -26,37 +27,37 @@ function AssignIssue() {
     });
 
 
-console.log(staff);
-console.log(selectedStaff);
+    console.log(staff);
+    console.log(selectedStaff);
 
 
-const handleAssign = async (issueId) => {
-    if (!selectedStaff) {
-        return alert("Select a staff first!");
-    }
+    const handleAssign = async (issueId) => {
+        if (!selectedStaff) {
+            toast.error( "Select a staff first!" );
+        }
 
-    const staffInfo = staff.find(s => s._id === selectedStaff);
+        const staffInfo = staff.find(s => s._id === selectedStaff);
 
-    const assignData = {
-        staffEmail: staffInfo.email,  // backend only needs this!
+        const assignData = {
+            staffEmail: staffInfo.email,  // backend only needs this!
+        };
+
+        const res = await axiosS.patch(`/admin/issues/assign/${issueId}`, assignData);
+
+        if (res.data.success) {
+            Swal.fire({
+                icon: "success",
+                title: "Issue Assigned Successfully!",
+                timer: 1500,
+                showConfirmButton: false,
+            });
+
+            refetchIssues();
+            refetchStaff();
+        } else {
+            toast.error(res.data.message)
+        }
     };
-
-    const res = await axiosS.patch(`/admin/issues/assign/${issueId}`, assignData);
-
-    if (res.data.success) {
-        Swal.fire({
-            icon: "success",
-            title: "Issue Assigned Successfully!",
-            timer: 1500,
-            showConfirmButton: false,
-        });
-
-        refetchIssues();
-        refetchStaff();
-    } else {
-        alert(res.data.message);
-    }
-};
 
 
     return (

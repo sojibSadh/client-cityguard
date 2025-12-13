@@ -78,14 +78,14 @@ const StaffAllIssues = () => {
     };
 
     return (
-        <div className="p-5 bg-base-100 rounded-box shadow-xl">
+        <div className="p-5 rounded-box shadow-xl">
 
-            <h2 className="text-3xl font-bold mb-5">Assigned Issues</h2>
+            <h2 className="title text-center mb-5">All Assigned Issues</h2>
 
             {/* Filters */}
-            <div className="flex gap-4 mb-4">
+            <div className="flex gap-4 mb-6 mx-auto justify-center">
                 <select
-                    className="select select-bordered"
+                    className="select bg-gray-300 text-primary select-bordered font-semibold"
                     value={filterStatus}
                     onChange={(e) => setFilterStatus(e.target.value)}
                 >
@@ -98,7 +98,7 @@ const StaffAllIssues = () => {
                 </select>
 
                 <select
-                    className="select select-bordered"
+                    className="select select-bordered bg-gray-300 font-semibold text-primary"
                     value={filterPriority}
                     onChange={(e) => setFilterPriority(e.target.value)}
                 >
@@ -108,15 +108,15 @@ const StaffAllIssues = () => {
                     <option value="low">Low</option>
                 </select>
 
-                <button className="btn btn-warning" onClick={() => { setFilterPriority(""); setFilterStatus(""); }}>
+                <button className="btn btn-cusPrimary" onClick={() => { setFilterPriority(""); setFilterStatus(""); }}>
                     Clear Filters
                 </button>
             </div>
 
-            <div className="overflow-x-auto border rounded-lg">
-                <table className="table w-full table-zebra">
-                    <thead>
-                        <tr className="bg-base-200 text-lg">
+            <div className="overflow-x-auto  rounded-lg shadow-md shadow-gray-500">
+                <table className="table w-full ">
+                    <thead className="tableHead">
+                        <tr>
                             <th>Title</th>
                             <th>Priority</th>
                             <th>Status</th>
