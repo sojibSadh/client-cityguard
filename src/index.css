@@ -69,3 +69,30 @@ p {
 .tableHead {
     @apply  text-[18px] font-bold text-white  bg-amber-950/70
 }
+
+.dashborder li {
+    @apply border-b-2 border-primary/40 transition duration-1000 relative
+}
+
+.dashborder li:after, .homeMenu li:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    top: 100%;
+    left: 0;
+    background: #A91D3A;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+.dashborder li:hover:after , .homeMenu li:hover:after {
+    width: 100%;
+}
+
+.dashborder li.none {
+    border-bottom: 1px solid transparent;
+}

@@ -35,7 +35,7 @@ function DashboardLayout() {
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
                     {/* Navbar */}
-                    <nav className="navbar w-full bg-[#192125] shadow-md sticky top-0 z-10">
+                    <nav className="navbar w-full bg-[#192125] shadow-md sticky top-0 z-10 border-b-1 border-primary/70">
                         <div className="flex-none lg">
                             <label htmlFor="my-drawer-4" aria-label="open sidebar" className="btn btn-square btn-ghost hover:bg-primary border-0 text-xl">
                                 <FaBarsStaggered className="w-5 h-5" />
@@ -92,16 +92,16 @@ function DashboardLayout() {
 
 
                     {/* Page content here */}
-                    <Outlet> </Outlet>
+                    <Outlet > </Outlet>
                 </div>
 
-                <div className="drawer-side  is-drawer-close:overflow-visible">
+                <div className="drawer-side  is-drawer-close:overflow-visible border-x-1 border-primary/70 ">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                     <div className="flex min-h-full bg-[#192125] flex-col items-start  is-drawer-close:w-14 is-drawer-open:w-64">
                         {/* Sidebar content here */}
-                        <ul className="menu w-full grow">
+                        <ul className="menu w-full grow dashborder">
                             {/* List item */}
-                            <li>
+                            <li className='none'>
                                 <Link to='/' className="pt-5 is-drawer-close:tooltip is-drawer-close:tooltip-right  text-2xl font-extrabold text-orange-600" data-tip="Homepage">
                                     {/* Home icon */}
                                     <FaHome className="w-6 h-6" />
@@ -109,11 +109,11 @@ function DashboardLayout() {
 
                                 </Link>
                             </li>
-                            <div className="divider my-0"></div>
+                            <div className="divider  my-0"></div>
                             {/* ===================== ADMIN ROUTES ===================== */}
                             {role?.role === "admin" && (
                                 <>
-                                    <li>
+                                    <li className=''>
                                         <Link to="/dashboard" className="dashboard-li" data-tip="Admin Dashboard ">
                                             {/* Settings icon */}
                                             <FaTachometerAlt className="w-5 h-5" />

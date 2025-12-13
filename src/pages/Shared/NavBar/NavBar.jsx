@@ -86,7 +86,7 @@ function NavBar() {
                 </Link>
             </div>
             <div className=" hidden lg:flex my-3">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu homeMenu menu-horizontal px-1">
                         {links}
 
                 </ul>
