@@ -63,7 +63,7 @@ const AdminAllIssues = () => {
             <h2 className="title mb-6 text-center">All Issues Management</h2>
 
             {/* Responsive Table Container (DaisyUI component) */}
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto border border-primary/50  shadow-md shadow-gray-500">
                 <table className="table w-full  table-lg">
                     {/* Table Head - ADDED border-b-2 and border-gray-400 for a clear bottom border */}
                     <thead className="tableHead">

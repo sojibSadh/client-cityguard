@@ -23,23 +23,23 @@ function StaffDashboardHome() {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-6">Staff Dashboard</h2>
+            <h2 className="title text-center my-6">Staff Dashboard</h2>
 
             {/* Summary Cards */}
-            <div className="shadow grid grid-cols-3 gap-4 my-6">
-                <div className="stat place-items-center p-4 border rounded-lg">
+            <div className="shadow grid grid-cols-3 gap-4 my-6 pl-4">
+                <div className="stat place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
                     <div className="stat-title">Assigned Issues</div>
                     <div className="stat-value">{stats.assignedCount || 0}</div>
                     <div className="stat-desc">Total assigned</div>
                 </div>
 
-                <div className="stat place-items-center p-4 border rounded-lg">
+                <div className="stat place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
                     <div className="stat-title">Resolved Issues</div>
                     <div className="stat-value">{stats.resolvedCount || 0}</div>
                     <div className="stat-desc">Completed by you</div>
                 </div>
 
-                <div className="stat place-items-center p-4 border rounded-lg">
+                <div className="stat place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
                     <div className="stat-title">Today's Tasks</div>
                     <div className="stat-value">{stats.todaysTaskCount || 0}</div>
                     <div className="stat-desc">Updated Today</div>

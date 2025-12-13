@@ -93,7 +93,7 @@ function UserManegement() {
             {
                 !isLoading ? (
                     <div>
-                        <div className='text-center py-5'>
+                        <div className='text-center py-5 '>
                             <div className='title py-3'>
                             All Citizens -
                                 {citizens.length}
@@ -116,7 +116,7 @@ function UserManegement() {
                                 </label>
                             </div>
                         </div>
-                        <div className="overflow-x-auto">
+                        <div className="overflow-x-auto  ml-4 border border-primary/50  shadow-md shadow-gray-500">
                             <table className="table">
                                 {/* head */}
                                 <thead className='tableHead '>

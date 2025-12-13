@@ -82,11 +82,11 @@ function AssignIssue() {
             </div>
 
             {/* Issues Table */}
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto ml-4 border border-primary/50  shadow-md shadow-gray-500">
                 <table className="table w-full">
                     <thead className='tableHead' >
                         <tr>
-                            <th>#</th>
+                            <th className='text-orange-600'>#</th>
                             <th>Issue Title</th>
                             <th>Status</th>
                             <th>Assign</th>

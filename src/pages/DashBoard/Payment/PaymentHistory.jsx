@@ -20,7 +20,7 @@ function PaymentHistory() {
     <div>
       <h2 className="title my-6 text-center">All Payments History</h2>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto ml-4 border border-primary/50  shadow-md shadow-gray-500">
         <table className="table w-full  table-lg">
           {/* Table Head */}
           <thead className='tableHead'>

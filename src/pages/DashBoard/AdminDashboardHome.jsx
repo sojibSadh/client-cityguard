@@ -22,18 +22,18 @@ function AdminDashboardHome() {
     return (
         <div>
 
-            <div className=" shadow grid grid-cols-3">
+            <div className="mt-5 md:ml-5 grid gap-6  md:grid-cols-3">
                 {
-                    deliveryStats.map((stat, index) => <div key={index} className="stat place-items-center">
-                        <div className="stat-title"> {stat._id} </div>
-                        <div className="stat-value">{stat.count}K  </div>
-                        <div className="stat-desc">From January 1st to February 1st</div>
+                    deliveryStats.map((stat, index) => <div key={index} className="stat bg-gray-700 place-items-center rounded-2xl shadow-md shadow-primary ">
+                        <div className="stat-title text-info"> {stat._id} </div>
+                        <div className="stat-value text-orange-600">{stat.count}K  </div>
+                        <div className="stat-desc text-gray-300">From January 1st to February 1st</div>
                     </div>)
                 }
 
             </div>
-            <div className='mx-auto text-center'>
-                <PieChart style={{ width: '50%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
+            <div className='md:ml-[30%] text-center'>
+                <PieChart style={{  maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
                     <Pie
                         dataKey="value"
                         startAngle={180}
