@@ -61,13 +61,13 @@ const handleAssign = async (issueId) => {
 
     return (
         <div className="p-6">
-            <h2 className="text-3xl font-bold mb-4">Assign Staff To Issue</h2>
+            <h2 className="text-3xl title mb-4 text-center ">Assign Staff To Issue</h2>
 
             {/* Staff Dropdown */}
-            <div className="mb-6">
-                <label className="block mb-2 font-semibold">Select Staff:</label>
+            <div className="mb-6 mx-auto text-center">
+                <label className="block mb-2 font-semibold uppercase">Select Staff</label>
                 <select
-                    className="select select-bordered w-full"
+                    className="select select-bordered  w-[50%] bg-gray-300 text-orange-500 font-semibold"
                     value={selectedStaff}
                     onChange={(e) => setSelectedStaff(e.target.value)}
                 >
@@ -83,7 +83,7 @@ const handleAssign = async (issueId) => {
             {/* Issues Table */}
             <div className="overflow-x-auto">
                 <table className="table w-full">
-                    <thead>
+                    <thead className='tableHead' >
                         <tr>
                             <th>#</th>
                             <th>Issue Title</th>
@@ -98,9 +98,9 @@ const handleAssign = async (issueId) => {
                                 <td>{issue.title}</td>
                                 <td>
                                     {issue.assignedStaff ? (
-                                        <span className="badge badge-success">Assigned</span>
+                                        <span className="badge badge-success py-4">Assigned</span>
                                     ) : (
-                                        <span className="badge badge-warning">Not Assigned</span>
+                                        <span className="badge badge-warning py-4">Not Assigned</span>
                                     )}
                                 </td>
                                 <td>
@@ -112,7 +112,7 @@ const handleAssign = async (issueId) => {
                                             Assign
                                         </button>
                                     ) : (
-                                        <button className="btn btn-disabled btn-sm">
+                                        <button className="btn btn-disabled bg-gray-300 text-black btn-sm">
                                             Already Assigned
                                         </button>
                                     )}
