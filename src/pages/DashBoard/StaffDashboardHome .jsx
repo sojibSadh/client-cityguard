@@ -27,22 +27,22 @@ function StaffDashboardHome() {
 
             {/* Summary Cards */}
             <div className="shadow grid grid-cols-3 gap-4 my-6 pl-4">
-                <div className="stat place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
-                    <div className="stat-title">Assigned Issues</div>
-                    <div className="stat-value">{stats.assignedCount || 0}</div>
-                    <div className="stat-desc">Total assigned</div>
+                <div className="stat bg-gray-800 place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
+                    <div className="stat-title text-info">Assigned Issues</div>
+                    <div className="stat-value text-orange-600">{stats.assignedCount || 0}</div>
+                    <div className="stat-desc text-gray-100">Total assigned</div>
                 </div>
 
-                <div className="stat place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
-                    <div className="stat-title">Resolved Issues</div>
-                    <div className="stat-value">{stats.resolvedCount || 0}</div>
-                    <div className="stat-desc">Completed by you</div>
+                <div className="stat bg-gray-800 place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
+                    <div className="stat-title text-info">Resolved Issues</div>
+                    <div className="stat-value text-orange-600">{stats.resolvedCount || 0}</div>
+                    <div className="stat-desc text-gray-100">Completed by you</div>
                 </div>
 
-                <div className="stat place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
-                    <div className="stat-title">Today's Tasks</div>
-                    <div className="stat-value">{stats.todaysTaskCount || 0}</div>
-                    <div className="stat-desc">Updated Today</div>
+                <div className="stat bg-gray-800 place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
+                    <div className="stat-title text-info">Today's Tasks</div>
+                    <div className="stat-value text-orange-600">{stats.todaysTaskCount || 0}</div>
+                    <div className="stat-desc text-gray-100">Updated Today</div>
                 </div>
             </div>
 

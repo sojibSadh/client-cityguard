@@ -35,10 +35,10 @@ function DashboardLayout() {
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
                     {/* Navbar */}
-                    <nav className="navbar w-full bg-[#192125] shadow-md sticky top-0 z-10 border-b-1 border-primary/70">
+                    <nav className="navbar w-full bg-[#192125] shadow-md sticky top-0 z-10 border-b-1 border-r-1 border-primary/70">
                         <div className="flex-none lg">
-                            <label htmlFor="my-drawer-4" aria-label="open sidebar" className="btn btn-square btn-ghost hover:bg-primary border-0 text-xl">
-                                <FaBarsStaggered className="w-5 h-5" />
+                            <label htmlFor="my-drawer-4" aria-label="open sidebar" className="btn btn-square btn-ghost hover:bg-gray-600 border-0 text-xl">
+                                <FaBarsStaggered fill='#D54000' className="w-5 h-5 " />
                             </label>
                         </div>
                         <div className="flex-1 px-2 text-2xl font-bold text-gray-300">
@@ -121,7 +121,7 @@ function DashboardLayout() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/dashboard/adminprofile" className="dashboard-li" data-tip="Admin Dashboard ">
+                                        <Link to="/dashboard/adminprofile" className="dashboard-li" data-tip="Profile">
                                             {/* Settings icon */}
                                             <CgProfile className="w-5 h-5" />
                                             <span className="is-drawer-close:hidden"> Profile</span>
@@ -142,7 +142,7 @@ function DashboardLayout() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/dashboard/manage-assign" className="dashboard-li" data-tip="Manage Staff ">
+                                        <Link to="/dashboard/manage-assign" className="dashboard-li" data-tip="Assign Staff ">
                                             {/* Settings icon */}
                                             <FaUserTie className="w-5 h-5" />
                                             <span className="is-drawer-close:hidden"> Assign Staff  </span>
