@@ -53,8 +53,9 @@ body {
 }
 
 
+
 .sub-title {
-    @apply md:text-xl text-lg font-semibold
+    @apply md:text-[18px]  font-medium
 }
 
 p {
