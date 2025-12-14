@@ -45,7 +45,7 @@ function Review({ reviewPromise }) {
 
                 {
                     reviewData.map(review => <SwiperSlide>
-                        <div className='space-y-6 bg-gray-800 shadow-lg rounded-xl p-5  shadow-orange-600'>
+                        <div className='space-y-6 bg-gray-800 shadow-lg rounded-xl p-5  shadow-orange-800'>
                             <FaQuoteLeft className='text-primary text-2xl mb-4 opacity-70' />
                             <p className='text-center text-xl'>{review.review}</p>
                             <div className='flex justify-center gap-6'>

@@ -11,40 +11,41 @@ import { Autoplay, Pagination } from 'swiper/modules'
 
 // Swiper CSS
 import "swiper/css";
-
-
 const brandLogos = [brand1, brand2, brand3, brand4, brand5, brand6];
 
 function Brand() {
   return (
-    <Swiper
-      loop={true}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
-      spaceBetween={30}
-      grabCursor={true}
-      centeredSlides={true}
-      slidesPerView={4}
+    <div className='bg-gradient-to-r  from-[#161616c] via-gray-500 to-[#161616] rounded-2xl md:py-20 py-8'>
+      <Swiper
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        spaceBetween={30}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={4}
 
-      breakpoints={{
-        320: { slidesPerView: 2 },
-        640: { slidesPerView: 3 },
-        1024: { slidesPerView: 4 },
-      }}
+        breakpoints={{
+          320: { slidesPerView: 2 },
+          640: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+        }}
 
 
 
-      modules={[Autoplay, Pagination]}
-      className="mySwiper my-6"
-    >
-      {brandLogos.map((logo, i) => (
-        <SwiperSlide key={i}>
-          <img src={logo} alt="brand" className="w-24 mx-auto" />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+        modules={[Autoplay, Pagination]}
+        className="mySwiper my-2"
+      >
+        {brandLogos.map((logo, i) => (
+          <SwiperSlide key={i}>
+            <img src={logo} alt="brand" className="w-35 mx-auto" />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+
   )
 }
 

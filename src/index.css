@@ -97,3 +97,11 @@ p {
 .dashborder li.none {
     border-bottom: 1px solid transparent;
 }
+
+.thumbs-wrapper.axis-vertical {
+    display: none;
+}
+.carousel .slide .legend {
+    opacity: 1;
+    display: none;
+}

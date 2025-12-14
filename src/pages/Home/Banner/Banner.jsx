@@ -7,18 +7,18 @@ import bannerImg3 from '../../../assets/banner/banner3.png'
 
 function Banner() {
   return (
-    <div>
+    <div className='mb-8'>
        <Carousel autoPlay={true} infiniteLoop={true} >
-                <div>
-                    <img src={bannerImg1}/>
+                <div className='overflow-hidden'>
+                    <img className='h-screen ' src={bannerImg1}/>
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src={bannerImg2} />
+                    <img className='h-screen' src={bannerImg2} />
                     <p className="legend">Legend 2</p>
                 </div>
                 <div>
-                    <img src={bannerImg3} />
+                    <img className='h-screen' src={bannerImg3} />
                     <p className="legend">Legend 3</p>
                 </div>
             </Carousel>

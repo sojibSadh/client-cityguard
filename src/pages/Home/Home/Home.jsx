@@ -17,8 +17,8 @@ function Home() {
       <Feature/>
       <How/>
       <Latest/>
-      <Brand/>
       <Review reviewPromise={reviewPromise}/>
+      <Brand/>
     </div>
   )
 }

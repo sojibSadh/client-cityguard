@@ -50,7 +50,7 @@ export default function Feature() {
                     <h2 className="md:text-4xl text-[22px] font-bold text-orange-600 mb-4">
                         Powerful Platform Features
                     </h2>
-                    <p className="sub-title max-w-2xl mx-auto">
+                    <p className="sub-title text-gray-300 max-w-2xl mx-auto">
                         Our smart city issue management system is designed to ensure faster
                         response, transparency, and better communication between citizens,
                         staff, and administrators.
@@ -62,13 +62,13 @@ export default function Feature() {
                     {features.map((item, index) => (
                         <div
                             key={index}
-                            className="card bg-[#BBD697] hover:bg-[#D6D6D6]  shadow-xl shadow-black  hover:shadow-gray-500 transition duration-300"
+                            className="card group bg-gray-800 hover:bg-[#D6D6D6]  shadow-xl shadow-gray-700  hover:shadow-black transition duration-300"
                         >
                             <div className="card-body items-center text-center">
                                 {/* Icon (Now Lottie Animation) */}
                                 {/* Removed animate-bounce as Lottie provides its own animation */}
                                 <div className="w-30 h-30 flex justify-center items-center  mx-auto mb-4">
-                                  <span className="rounded-full">  {item.icon} </span>
+                                  <span className="rounded-full group-hover:scale-125 duration-700">  {item.icon} </span>
                                 </div>
 
                                 {/* Title */}
@@ -77,7 +77,7 @@ export default function Feature() {
                                 </h3>
 
                                 {/* Description */}
-                                <p className="text-black">
+                                <p className="text-gray-300 group-hover:text-black">
                                     {item.desc}
                                 </p>
                             </div>

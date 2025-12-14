@@ -61,12 +61,12 @@ export default function How() {
           {steps.map((item, index) => (
             <div
               key={index}
-              className="card bg-[#D6D6D6] hover:bg-[#BBD697] shadow-xl hover:-translate-y-3  shadow-orange-500/30  hover:shadow-orange-800 transition duration-300 "
+              className="card group bg-[#D6D6D6] hover:bg-[#BBD697] shadow-xl hover:-translate-y-3  shadow-orange-500/30  hover:shadow-orange-800 transition duration-300 "
             >
               <div className="card-body items-center text-center">
 
                 {/* Icon */}
-                <div className="text-5xl text-[#FF7A00] mb-4 animate-pulse">
+                <div className="text-5xl text-[#FF7A00] group-hover:text-[#252525] mb-4 animate-pulse group-hover:scale-125 duration-700 ">
                   {item.icon}
                 </div>
                 {/* Title */}
