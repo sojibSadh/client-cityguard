@@ -127,7 +127,7 @@ export default function Issues() {
                             return (
                                 <div
                                     key={issue._id}
-                                    className="bg-dark2 rounded-xl shadow-xl shadow-gray-950 hover:shadow-gray-600 overflow-hidden transform hover:scale-[1.02] transition duration-300 ease-in-out"
+                                    className="bg-gray-900 rounded-xl shadow-xl shadow-gray-600 hover:shadow-gray-600 overflow-hidden transform hover:scale-[1.02] transition duration-300 ease-in-out"
                                 >
                                     <img
                                         src={issue.image || 'https://via.placeholder.com/600x400.png?text=Issue+Image'}

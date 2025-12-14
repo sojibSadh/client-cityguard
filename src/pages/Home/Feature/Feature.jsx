@@ -4,7 +4,7 @@ import Dash from '../../../assets/dash.gif';
 import Emergency from '../../../assets/emergency.gif';
 import Online from '../../../assets/online.gif';
 import Pin from '../../../assets/pin.gif';
-import Time from '../../../assets/time.gif';
+import Time from '../../../assets/time3.gif';
 
 
 const features = [
@@ -62,7 +62,7 @@ export default function Feature() {
                     {features.map((item, index) => (
                         <div
                             key={index}
-                            className="card bg-[#D6D6D6] hover:bg-[#BBD697]  shadow-xl shadow-black  hover:shadow-gray-500 transition duration-300"
+                            className="card bg-[#BBD697] hover:bg-[#D6D6D6]  shadow-xl shadow-black  hover:shadow-gray-500 transition duration-300"
                         >
                             <div className="card-body items-center text-center">
                                 {/* Icon (Now Lottie Animation) */}
