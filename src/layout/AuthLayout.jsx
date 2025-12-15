@@ -5,15 +5,11 @@ import authImg from '../assets/authImage.png';
 
 function AuthLayout() {
     return (
-        <div className='max-w-7xl mx-auto '>
-
-            <div className='flex justify-between mt-12'>
-                <div className='flex-1'>
-                    <div className='w-[220px] mx-auto'>
-                        <img src={Logo} alt="logo" />
-                    </div>
-                    <Outlet></Outlet> </div>
-                <div className='flex-1'> <img src={authImg} alt="" /> </div>
+        <div className='max-w-[1400px] mx-auto '>
+            <div className=''>
+                <div >
+                    <Outlet></Outlet>
+                </div>
             </div>
 
         </div>

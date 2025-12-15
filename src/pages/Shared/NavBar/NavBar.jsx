@@ -81,7 +81,7 @@ function NavBar() {
                     </ul>
                 </div>
                 <Link to={"/"} className="max-sm:mx-auto">
-                    <img src={Logo} alt="" className="w-[140px]" />
+                    <img src={Logo} alt="" className="w-[50px]" />
 
                 </Link>
             </div>
