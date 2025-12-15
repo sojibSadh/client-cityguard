@@ -30,6 +30,8 @@ import StaffProfile from "../pages/DashBoard/Staff/StaffProfile";
 import StaffDashboardHome from "../pages/DashBoard/StaffDashboardHome ";
 import AdminProfile from "../pages/DashBoard/Admin/AdminProfile";
 import CitizenProfile from "../pages/DashBoard/Citizen/CitizenProfile";
+import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 
 
@@ -45,6 +47,14 @@ export const router = createBrowserRouter([
       {
         path: '/all-issues',
         Component: Issues,
+      },
+      {
+        path: '/about',
+        Component: About,
+      },
+      {
+        path: '/contact',
+        Component: Contact,
       },
       {
         path: '/issues/:id',

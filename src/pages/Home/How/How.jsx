@@ -42,7 +42,7 @@ const steps = [
 
 export default function How() {
   return (
-    <section className="bg-[#D6D6D6]/10 py-20 rounded-2xl md:my-8">
+    <section className="bg-[#D6D6D6]/10 dark:bg-[292D33] py-20 rounded-2xl md:my-8">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Header */}
@@ -61,7 +61,7 @@ export default function How() {
           {steps.map((item, index) => (
             <div
               key={index}
-              className="card group bg-[#D6D6D6] hover:bg-[#BBD697] shadow-xl hover:-translate-y-3  shadow-orange-500/30  hover:shadow-orange-800 transition duration-300 "
+              className="card group bg-[#D6D6D6] dark:bg-[#BBD697] hover:bg-[#D6D6D6] shadow-xl hover:-translate-y-3  shadow-orange-500/30  hover:shadow-orange-800 transition duration-300 "
             >
               <div className="card-body items-center text-center">
 

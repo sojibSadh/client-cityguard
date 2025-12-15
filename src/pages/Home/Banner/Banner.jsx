@@ -8,20 +8,31 @@ import bannerImg3 from '../../../assets/banner/banner3.png'
 function Banner() {
   return (
     <div className='mb-8'>
-       <Carousel autoPlay={true} infiniteLoop={true} >
-                <div className='overflow-hidden'>
-                    <img className='h-screen ' src={bannerImg1}/>
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img className='h-screen' src={bannerImg2} />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img className='h-screen' src={bannerImg3} />
-                    <p className="legend">Legend 3</p>
-                </div>
-            </Carousel>
+      <Carousel autoPlay={true} infiniteLoop={true}>
+        <div className="overflow-hidden">
+          <img
+            src={bannerImg1}
+            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[450px] lg:h-screen"
+          />
+          <p className="legend">Legend 1</p>
+        </div>
+
+        <div className="overflow-hidden">
+          <img
+            src={bannerImg2}
+            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[450px] lg:h-screen"
+          />
+          <p className="legend">Legend 2</p>
+        </div>
+
+        <div className="overflow-hidden">
+          <img
+            src={bannerImg3}
+            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[450px] lg:h-screen"
+          />
+          <p className="legend">Legend 3</p>
+        </div>
+      </Carousel>
     </div>
   )
 }

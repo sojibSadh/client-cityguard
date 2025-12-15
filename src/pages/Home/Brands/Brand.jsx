@@ -15,7 +15,7 @@ const brandLogos = [brand1, brand2, brand3, brand4, brand5, brand6];
 
 function Brand() {
   return (
-    <div className='bg-gradient-to-r  from-[#161616c] via-gray-500 to-[#161616] rounded-2xl md:py-20 py-8'>
+    <div className='bg-gradient-to-r  from-[#161616c] via-gray-500 to-[#161616] dark:via-orange-800 rounded-2xl md:py-20 py-8'>
       <Swiper
         loop={true}
         autoplay={{

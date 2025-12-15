@@ -2,13 +2,14 @@ import { Link, NavLink } from "react-router";
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { FaGear, FaUser } from "react-icons/fa6";
-import { CgProfile } from "react-icons/cg";
 import { ImBoxAdd } from "react-icons/im";
 import { IoPersonAddSharp } from 'react-icons/io5';
 import { use, useEffect, useState } from "react";
-import { Briefcase, LucidePackageCheck, Plus } from "lucide-react";
+import { LuTwitch } from "react-icons/lu";
+import { Briefcase, LucidePackageCheck} from "lucide-react";
 import useAuth from "../../../hooks/useAuth";
 import Logo from "../../../assets/logo.png"
+import { MdContactSupport } from "react-icons/md";
 
 function NavBar() {
     const { user, logOut} = useAuth()
@@ -38,8 +39,13 @@ function NavBar() {
                         </NavLink>
                     </li>
                      <li className="text-white hover:text-orange-600 font-semibold dark:text-gray-300">
-                        <NavLink to="/dashboard">
-                            <IoPersonAddSharp size={14} /> Dashboard
+                        <NavLink to="/about">
+                        <LuTwitch /> About Us
+                        </NavLink>
+                    </li >
+                     <li className="text-white hover:text-orange-600 font-semibold dark:text-gray-300">
+                        <NavLink to="/contact">
+                        <MdContactSupport /> Contact
                         </NavLink>
                     </li >
                      <li className="text-white hover:text-orange-600 font-semibold dark:text-gray-300">
@@ -52,7 +58,7 @@ function NavBar() {
 
 
     return (
-        <div className="navbar max-w-[1400px] mx-auto py-0 min-h-0 z-1 shadow-sm  glass-card">
+        <div className="navbar max-w-[1400px] bg-gradient-to-r  from-[#161616c] via-primary to-[#161616]  mx-auto py-0 min-h-0 z-1 shadow-sm  glass-card ">
             <div className=" flex justify-between items-center w-full">
             <div className="flex items-center max-sm:justify-between  max-sm:w-[80%]">
                 <div className="dropdown">
@@ -75,7 +81,7 @@ function NavBar() {
                     </div>
                     <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                        className="menu menu-sm dropdown-content bg-gray-700 rounded-box z-1 mt-3 w-52 p-2 shadow"
                     >
                        {links}
                     </ul>

@@ -7,13 +7,10 @@ import {
 } from 'lucide-react';
 
 
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  // bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
   return (
-    <footer className="bg-gradient-to-r  from-[#161616c] via-[#17295f] to-[#161616]  dark:from-gray-900  dark:to-gray-900 md:py-8 py-6 px-6  mt-6">
+    <footer className="bg-gradient-to-r  from-[#161616c] via-[#17295f] to-[#161616] dark:via-orange-900/50  dark:from-gray-900  dark:to-gray-900 md:py-8 py-6 px-6  mt-6">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 max-sm:text-center">
         <div>
           <div className="mb-6 max-sm:mb-3  text-white">

@@ -56,16 +56,15 @@ function Latest() {
         }
     };
 
-    console.log(data);
     return (
-        <div className='bg-orange-600/10 rounded-2xl md:py-20 py-8'>
+        <div className='bg-orange-600/10 dark:bg-gray-500 rounded-2xl md:py-20 py-8'>
             <div className="max-w-7xl mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-14">
                     <h2 className="md:text-4xl text-[22px] font-bold text-orange-600 mb-4">
                         Latest Resolved Issues
                     </h2>
-                    <p className="sub-title max-w-2xl mx-auto">
+                    <p className="sub-title max-w-2xl mx-auto dark:text-gray-300">
                         Our smart city issue management system is designed to ensure faster
                         response, transparency, and better communication between citizens,
                         staff, and administrators.
