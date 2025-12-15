@@ -6,6 +6,7 @@ import { Bars } from 'react-loader-spinner';
 import toast from 'react-hot-toast';
 import useAxios from '../../../hooks/useAxios';
 import useAuth from '../../../hooks/useAuth';
+import { GiSelfLove } from 'react-icons/gi';
 
 export default function MyIssue() {
     const axiosS = useAxios();
@@ -24,7 +25,7 @@ export default function MyIssue() {
         queryKey: ['all-issues', category, status, priority, search, page],
         queryFn: async () => {
             const res = await axiosS.get('/my-issues-email', {
-                params: {email, category, status, priority, search, page }
+                params: { email, category, status, priority, search, page }
             });
 
             const data = res.data.data;
@@ -77,16 +78,16 @@ export default function MyIssue() {
             </h1>
 
             {/* --- Filters --- */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 p-4 bg-white rounded-xl shadow-lg">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 p-4 bg-[#171717]  shadow-gray-600 rounded-xl shadow-lg">
                 <input
-                    className="col-span-1 md:col-span-2 p-3 border border-gray-300 rounded-lg outline-0 focus:ring-indigo-500 focus:border-indigo-500  transition duration-150 ease-in-out"
+                    className="col-span-1 md:col-span-2 p-3 border border-primary rounded-lg outline-0 focus:ring-orange-500 focus:border-orange-500  transition duration-150 ease-in-out"
                     placeholder="Search issues by title or keyword..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
 
                 <select
-                    className="p-3 border border-gray-300 rounded-lg bg-white outline-0 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition duration-150 ease-in-out"
+                    className="p-3 border border-primary rounded-lg bg-gray-900 outline-0 focus:ring-orange-500 focus:border-orange-500 appearance-none transition duration-150 ease-in-out"
                     onChange={(e) => setCategory(e.target.value)}
                     value={category}
                 >
@@ -98,7 +99,7 @@ export default function MyIssue() {
                 </select>
 
                 <select
-                    className="p-3 border border-gray-300 rounded-lg bg-white outline-0 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition duration-150 ease-in-out"
+                    className="p-3 border border-primary rounded-lg bg-gray-900 outline-0 focus:ring-orange-500 focus:border-orange-500 appearance-none transition duration-150 ease-in-out"
                     onChange={(e) => setStatus(e.target.value)}
                     value={status}
                 >
@@ -109,7 +110,7 @@ export default function MyIssue() {
                 </select>
 
                 <select
-                    className="p-3 border border-gray-300 rounded-lg bg-white outline-0 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition duration-150 ease-in-out"
+                    className="p-3 border border-primary rounded-lg bg-gray-900 outline-0 focus:ring-orange-500 focus:border-orange-500 appearance-none transition duration-150 ease-in-out"
                     onChange={(e) => setPriority(e.target.value)}
                     value={priority}
                 >
@@ -129,7 +130,7 @@ export default function MyIssue() {
                             return (
                                 <div
                                     key={issue._id}
-                                    className="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 ease-in-out"
+                                    className="bg-gray-900 rounded-xl shadow-xl shadow-gray-600 hover:shadow-gray-600 overflow-hidden transform hover:scale-[1.02] transition duration-300 ease-in-out"
                                 >
                                     <img
                                         src={issue.image || 'https://via.placeholder.com/600x400.png?text=Issue+Image'}
@@ -138,41 +139,41 @@ export default function MyIssue() {
                                     />
 
                                     <div className="p-5">
-                                        <h2 className="text-xl font-extrabold text-gray-900 truncate mb-1" title={issue.title}>
+                                        <h2 className="text-2xl text-center font-bold text-primary truncate mb-1" title={issue.title}>
                                             {issue.title}
                                         </h2>
-                                        <p className="text-sm text-indigo-600 font-medium mb-3">
+                                        <p className="text-md text-gray-300 text-center font-medium my-3">
                                             {issue.category} in {issue.location}
                                         </p>
 
-                                        <div className="flex flex-wrap gap-2 my-3">
-                                            <span className={`text-xs px-3 py-1 rounded-full ${getStatusStyle(issue.status)} font-medium`}>
+                                        <div className="flex flex-wrap justify-center gap-2 my-5">
+                                            <span className='text-xs px-3 py-1 rounded-full bg-gray-900 text-info border  border-orange-600'>
                                                 {issue.status}
                                             </span>
-                                            <span className={`text-xs px-3 py-1 rounded-full ${getPriorityStyle(issue.priority)}`}>
+                                            <span className='text-xs px-3 py-1 rounded-full bg-gray-900 text-info border  border-orange-600'>
                                                 {issue.priority}
                                             </span>
-                                            {issue.boosted && <span className="text-xs px-3 py-1 rounded-full bg-orange-100 text-orange-800 font-bold">⭐ Boosted</span>}
+                                            {issue.boosted && <span className="text-xs px-3 py-1 rounded-full bg-gray-900 text-info border  border-orange-600">⭐ Boosted</span>}
                                         </div>
 
                                         {/* Actions */}
-                                        <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                                        <div className="flex items-center justify-between pt-3 border-t border-primary">
                                             {/* Upvote Button */}
                                             <button
                                                 onClick={() => handleUpvote(issue._id, issue.authorEmail, hasUpvoted)}
-                                                className={`flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold transition duration-150 ease-in-out
-                                            ${hasUpvoted ? "bg-green-500 text-white hover:bg-green-600 shadow-md" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
+                                                className={`flex items-center space-x-1 px-3 py-1 rounded-full text-sm font-medium transition duration-150 ease-in-out
+                                                                                    ${hasUpvoted ? "bg-orange-800 text-white hover:bg-orange-500" : "bg-orange-700 text-white hover:bg-orange-500"}`}
                                                 disabled={hasUpvoted && user?.email !== issue.authorEmail}
                                             >
                                                 <span role="img" aria-label="upvote">
-                                                    {hasUpvoted ? '✅' : '👍'}
+                                                    {hasUpvoted ? '✅' : <GiSelfLove />}
                                                 </span>
                                                 <span className="text-base">{issue.upvotes}</span>
                                             </button>
 
                                             <Link
-                                                to={`/dashboard/my-issue/${issue._id}`}
-                                                className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 ease-in-out"
+                                                to={`/issues/${issue._id}`}
+                                                className="text-sm font-medium btn-cusPrimary py-2 px-3 rounded-full"
                                             >
                                                 View Details →
                                             </Link>

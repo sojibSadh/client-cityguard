@@ -5,7 +5,8 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import axios from 'axios';
 import useAxiosS from '../../../hooks/useAxiousS';
-
+import Online from '../../../assets/login.png';
+import toast from 'react-hot-toast';
 
 function Register() {
     const axiosS = useAxiosS();
@@ -24,7 +25,6 @@ function Register() {
         // 2 register user to firebase email and password
         registerUser(data.email, data.password)
             .then(res => {
-                console.log("registerUser inside", res);
                 //store the image and get the photo url
                 const formData = new FormData();
                 formData.append('image', profileImg)
@@ -33,7 +33,6 @@ function Register() {
 
                 axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_imageHost_key}`, formData)
                     .then(res => {
-                        console.log('after image upload', res);
                         const userInfo = {
                             email: data.email,
                             displayName: data.name,
@@ -44,7 +43,7 @@ function Register() {
                         axiosS.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    console.log('user created in the data user')
+                                    toast.success('SuccessFull create your Account')
                                 }
                             })
 
@@ -64,56 +63,66 @@ function Register() {
 
             })
             .catch(err => {
-                console.log(err)
+                toast.error('Your  account not create ')
+
             })
     }
 
 
     return (
         <div>
-            <form className='w-full' onSubmit={handleSubmit(handleRegister)}>
-                <fieldset className="fieldset">
-                    <label className="label">Photo</label>
-                    <input type="file" {...register('photo', { required: true })} className="file-input border w-full" placeholder="Photo" />
-                    {errors.photo?.type === "required" && (
-                        <p role="alert">Photo is required</p>
-                    )}
+            <div>
+                <img className='w-[250px] mx-auto' src={Online} alt="" />
+            </div>
+            <div>
+                <h2 className='title text-center pb-5'>Create Your Account </h2>
+            </div>
+            <div className='max-w-lg mx-auto shadow-2xl shadow-gray-500 p-5 rounded-2xl'>
+                <form className='w-full -mb-4' onSubmit={handleSubmit(handleRegister)}>
+                    <fieldset className="fieldset">
+                        <label  className="label text-gray-100 font-semibold">Photo</label>
+                        <input type="file" {...register('photo', { required: true })} className="file-input border text-gray-800 font-medium w-full mb-3" placeholder="Photo" />
+                        {errors.photo?.type === "required" && (
+                            <p role="alert">Photo is required</p>
+                        )}
 
-                    <label className="label">Name</label>
-                    <input type="text" {...register('name', { required: true })} className="input w-full" placeholder="Name" />
-                    {errors.name?.type === "required" && (
-                        <p role="alert">Name is required</p>
-                    )}
+                        <label  className="label text-gray-100 font-semibold">Name</label>
+                        <input type="text" {...register('name', { required: true })} className="input w-full text-gray-800 font-medium mb-3" placeholder="Name" />
+                        {errors.name?.type === "required" && (
+                            <p role="alert">Name is required</p>
+                        )}
 
-                    <label className="label">Email</label>
-                    <input type="email" {...register('email', { required: true })} className="input w-full" placeholder="Email" />
-                    {errors.email?.type === "required" && (
-                        <p role="alert">Email is required</p>
-                    )}
+                        <label  className="label text-gray-100 font-semibold">Email</label>
+                        <input type="email" {...register('email', { required: true })} className="input w-full text-gray-800 font-medium mb-3" placeholder="Email" />
+                        {errors.email?.type === "required" && (
+                            <p role="alert">Email is required</p>
+                        )}
 
-                    <label className="label">Password</label>
-                    <input type="password"  {...register('password', {
-                        required: true,
-                        minLength: 6,
-                        pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+                        <label  className="label text-gray-100 font-semibold">Password</label>
+                        <input type="password"  {...register('password', {
+                            required: true,
+                            minLength: 6,
+                            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
-                    })} className="input w-full" placeholder="Password" />
-                    {errors.password?.type === "required" && (
-                        <p role="alert">PassWord is required</p>
-                    )}
-                    {errors.password?.type === "minLength" && (
-                        <p role="alert">PassWord must be 6 character or longer </p>
-                    )}
-                    {errors.password?.type === "pattern" && (
-                        <p role="alert">password Must ar least one uppercase, at least one lowercase, at least one number, at least special characters </p>
-                    )}
+                        })} className="input w-full text-gray-800 font-medium mb-3" placeholder="Password" />
+                        {errors.password?.type === "required" && (
+                            <p role="alert">PassWord is required</p>
+                        )}
+                        {errors.password?.type === "minLength" && (
+                            <p role="alert">PassWord must be 6 character or longer </p>
+                        )}
+                        {errors.password?.type === "pattern" && (
+                            <p role="alert">password Must ar least one uppercase, at least one lowercase, at least one number, at least special characters </p>
+                        )}
 
-                    <div><a className="link link-hover">Forgot password?</a></div>
-                    <button className="btn-primary py-3 text-[16px] btn-neutral mt-4">Register</button>
-                </fieldset>
-                <p>Already have an account <NavLink className='text-blue-600' to='/login'> Login </NavLink>    </p>
-            </form>
-            <SocialLogin />
+                        <div><a className="link link-hover text-orange-600 font-semibold">Forgot password?</a></div>
+                        <button className="btn-cusPrimary rounded-md py-3 mb-3">Register</button>
+                    </fieldset>
+                </form>
+                <SocialLogin />
+                <p className='text-sm text-center'>Already have an account <NavLink className='text-blue-600' to='/login'> Login </NavLink>    </p>
+            </div>
+
         </div>
     )
 }

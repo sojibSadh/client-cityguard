@@ -24,18 +24,17 @@ function UserDashboardHome() {
 
     return (
         <div>
-
-            <div className=" shadow grid grid-cols-3">
+            <h2 className="title text-center my-6">Citizen Dashboard</h2>
+            <div className="shadow flex  justify-center items-center">
                 {
-                    deliveryStats.map((stat, index) => <div key={index} className="stat place-items-center">
-                        <div className="stat-title"> {stat._id} </div>
-                        <div className="stat-value">{stat.count}K  </div>
-                        <div className="stat-desc">From January 1st to February 1st</div>
+                    deliveryStats.map((stat, index) => <div key={index} className="stat bg-gray-800 place-items-center p-4 border border-primary/50 shadow-xl hover:shadow-md shadow-gray-500/50 rounded-lg">
+                        <div className="stat-title text-info"> {stat._id} </div>
+                        <div className="stat-value text-orange-600">{stat.count}K  </div>
+                        <div className="stat-desc text-gray-100">From January 1st to February 1st</div>
                     </div>)
                 }
-
             </div>
-            <div className='mx-auto text-center'>
+            <div className="flex justify-center">
                 <PieChart style={{ width: '50%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
                     <Pie
                         dataKey="value"

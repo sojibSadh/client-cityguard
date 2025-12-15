@@ -75,7 +75,7 @@ export default function Issues() {
             </h1>
 
             {/* --- Filters --- */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 p-4 bg-[#171717] shadow-2xl shadow-gray-600 rounded-xl shadow-lg">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 p-4 bg-[#171717]  shadow-gray-600 rounded-xl shadow-lg">
                 <input
                     className="col-span-1 md:col-span-2 p-3 border border-primary rounded-lg outline-0 focus:ring-orange-500 focus:border-orange-500  transition duration-150 ease-in-out"
                     placeholder="Search issues by title or keyword..."

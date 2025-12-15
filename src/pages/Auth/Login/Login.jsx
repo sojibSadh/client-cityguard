@@ -4,6 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import Online from '../../../assets/login.png'
+import toast from 'react-hot-toast';
 
 
 function Login() {
@@ -16,24 +17,23 @@ function Login() {
 
         signInUser(data.email, data.password)
             .then(res => {
-                console.log(res.user);
+                toast.success('Successfully login your account')
                 navigate(location.state || "/")
             })
             .catch(err => {
-                console.log(err)
+                toast.success('Email and password not match, try again')
             })
     }
 
     return (
-        <div className='h-full py-10  gap-6 ' >
-
+        <div className='h-full py-10  gap-6'>
             <div>
-                <img className='w-[400px] mx-auto' src={Online} alt="" />
+                <img className='w-[250px] mx-auto' src={Online} alt="" />
             </div>
             <div>
-                <h2 className='title text-center py-5'>Login to your account</h2>
+                <h2 className='title text-center pb-5'>Login To Your Account</h2>
             </div>
-            <div className='max-w-lg mx-auto shadow-2xl shadow-gray-500 p-3 rounded-2xl'>
+            <div className='max-w-lg mx-auto shadow-2xl shadow-gray-500 p-5 rounded-2xl'>
 
                 <form className='w-full' onSubmit={handleSubmit(handleLogin)}>
                     <fieldset className="fieldset">
@@ -65,7 +65,7 @@ function Login() {
                     </fieldset>
                 </form>
                 <SocialLogin />
-                <p className='text-center'>Create a New account <NavLink className='text-blue-600 ' to='/register' state={location.state}> Register </NavLink>    </p>
+                <p className='text-sm text-center'>Create a New account <NavLink className='text-blue-600 ' to='/register' state={location.state}> Register </NavLink>    </p>
             </div>
 
         </div>

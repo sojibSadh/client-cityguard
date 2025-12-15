@@ -29,25 +29,19 @@ function PostIssue() {
     }
   });
 
-  console.log(userStatus);
-
   const { issueCount = 0, subscription } = userStatus;
   const MAX_FREE_ISSUES = 3;
   const isFreeLimitReached = !subscription && issueCount >= MAX_FREE_ISSUES;
 
-  console.log(subscription);
-
   const senderRegion = useWatch({ control, name: 'senderRegion' });
   const regionsDuplicate = serviceCenter.map(c => c.region);
   const regionsOne = [...new Set(regionsDuplicate)];
-
   const districtsByRegion = (senderRegion) => {
     const location = serviceCenter.filter(c => c.region === senderRegion);
     return location.map(d => d.district);
   };
 
   const handlePostIssue = (data) => {
-
     axiousS.post('/issues', data)
       .then(res => {
         if (res.data.insertedId && !subscription) {
@@ -108,7 +102,7 @@ function PostIssue() {
 
   return (
     <div className='pl-8'>
-      <h2>Send Post of Issue</h2>
+      <h2 className='title text-center pt-7'>Send Post of Issue</h2>
 
       {isFreeLimitReached && (
         <div className="alert alert-warning mb-6">
@@ -117,20 +111,20 @@ function PostIssue() {
         </div>
       )}
 
-      <form onSubmit={isFreeLimitReached ? handlePostIssueLimit : handleSubmit(handlePostIssue)}>
+      <form className="w-[70%] mx-auto shadow-2xl shadow-primary mb-5 p-4" onSubmit={isFreeLimitReached ? handlePostIssueLimit : handleSubmit(handlePostIssue)}>
         <div className=''>
           <fieldset className="fieldset">
-            <label className="fieldset-legend">Issue title</label>
-            <input type="text" className="input w-full" placeholder="Issue title" {...register('title')} />
+            <label className="label text-gray-100 font-semibold">Issue title</label>
+            <input type="text" className="input w-full text-gray-800 font-medium mb-3" placeholder="Issue title" {...register('title')} />
           </fieldset>
           <fieldset className="fieldset">
-            <label className="fieldset-legend">Issue Image</label>
-            <input type="text" className="input w-full" placeholder="Img Url" {...register('image')} />
+            <label className="label text-gray-100 font-semibold">Issue Image</label>
+            <input type="text" className="input w-full text-gray-800 font-medium mb-3" placeholder="Img Url" {...register('image')} />
           </fieldset>
           <fieldset className="fieldset">
             <legend className="fieldset-legend">Select Categores
             </legend>
-            <select {...register('category')} className="select">
+            <select {...register('category')} className="select input w-full text-gray-800 font-medium mb-3">
               <option disabled selected>All Categores</option>
               <option value="Sanitation">Sanitation</option>
               <option value="Utilities">Utilities</option>
@@ -140,13 +134,13 @@ function PostIssue() {
           </fieldset>
           <div>
             <fieldset className="fieldset">
-              <label className="fieldset-legend"> Email </label>
-              <input type="email" className="input w-full" placeholder={user?.email} defaultValue={user?.email} readOnly {...register('authorEmail')} />
+              <label className="label text-gray-100 font-semibold"> Email </label>
+              <input type="email" className="input w-full text-gray-800 font-medium mb-3" placeholder={user?.email} defaultValue={user?.email} readOnly {...register('authorEmail')} />
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Issue Region</legend>
-              <select {...register('senderRegion')} className="select">
+              <legend className="label text-gray-100 font-semibold">Issue Region</legend>
+              <select {...register('senderRegion')} className="select input w-full text-gray-800 font-medium mb-3">
                 <option disabled selected>Issue a Region</option>
                 {regionsOne.map((c, i) => <option key={i}>{c}</option>)}
               </select>
@@ -157,7 +151,7 @@ function PostIssue() {
               <select
                 // key={senderRegion}   // FIX: prevents reset issues
                 {...register('location')}
-                className="select"
+                className="select input w-full text-gray-800 font-medium mb-3"
               >
                 <option disabled selected>Issue a District</option>
                 {districtsByRegion(senderRegion)?.map((c, i) =>
@@ -166,16 +160,15 @@ function PostIssue() {
               </select>
             </fieldset>
             <fieldset className="fieldset">
-              <label className="fieldset-legend">Issue description</label>
-              <textarea className="input w-full" placeholder="Issue description" {...register('description')} />
+              <label className="label text-gray-100 font-semibold">Issue description</label>
+              <textarea className="input  w-full text-gray-800 font-medium mb-3" placeholder="Issue description" {...register('description')} />
             </fieldset>
           </div>
         </div>
         <input
           type="submit"
-          className={`btn ${isFreeLimitReached ? 'btn-warning' : 'btn-primary'} text-black`}
+          className={`btn ${isFreeLimitReached ? 'btn-warning' : 'btn-primary'} text-white`}
           value={isFreeLimitReached ? 'Subscribe to Post' : 'Post Issue'}
-        // যদি limit পার হয়, তবে Post বাটনে ক্লিক করলে limit reached warning দেখাবে
         />
       </form>
 

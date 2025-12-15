@@ -2,10 +2,6 @@ import React from 'react'
 import useAxiousS from '../../../hooks/useAxiousS';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../hooks/useAuth';
-import { FaTrashAlt } from 'react-icons/fa';
-import { RiFileEditFill } from 'react-icons/ri';
-import { FaMagnifyingGlass } from 'react-icons/fa6';
-
 function PaymentHistoryCitizen() {
   const { user } = useAuth();
   const axiosSecure = useAxiousS();
@@ -18,14 +14,14 @@ function PaymentHistoryCitizen() {
     }
   })
 
-  console.log(payments);
   return (
     <div>
-      <div className="overflow-x-auto border border-base-300 rounded-lg">
-        <table className="table w-full table-zebra table-lg">
+      <h2 className="title my-6 text-center">All Payments History</h2>
+      <div className="overflow-x-auto ml-4 border border-primary/50  shadow-md shadow-gray-500">
+        <table className="table w-full  table-lg">
           {/* Table Head */}
-          <thead>
-            <tr className="bg-base-200 text-lg text-base-content uppercase">
+          <thead className='tableHead'>
+          <tr className="text-lg">
               <th>trackingId</th>
               <th>issueEmail</th>
               <th>transactionId</th>
@@ -37,13 +33,10 @@ function PaymentHistoryCitizen() {
           {/* Table Body */}
           <tbody>
             {payments?.map(issue => (
-              <tr key={issue._id} className="hover:bg-base-100 transition-colors duration-200">
-                <td className=" text-gray-600 ">{issue.trackingId}</td>
-                <td>
-                  {/* Priority Badge */}
-
+              <tr key={issue._id} className="hover:bg-gray-600 transition-colors duration-200">
+                <td className="font-medium text-[16px]">{issue.trackingId}</td>
+                <td className='text-gray-300'>
                   {issue.issueEmail}
-
                 </td>
                 <td className=" text-gray-500">{issue.transactionId}</td>
                 <td><span className="badge badge-outline">{issue.amount_total}</span></td>
