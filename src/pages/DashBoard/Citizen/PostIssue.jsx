@@ -82,7 +82,7 @@ function PostIssue() {
       confirmButtonText: 'Go to Profile'
     }).then((result) => {
       if (result.isConfirmed) {
-        navigate('/dashboard/profile');
+        navigate('/dashboard/citizenprofile');
       }
     });
   }
@@ -107,7 +107,7 @@ function PostIssue() {
       {isFreeLimitReached && (
         <div className="alert alert-warning mb-6">
           <span className="font-bold">⚠️ Issue Limit Reached!</span>
-          <p>You have posted {issueCount} out of {MAX_FREE_ISSUES} issues. Please <button onClick={() => navigate('/dashboard/profile')} className="btn btn-sm btn-link p-0">Subscribe to Premium</button> for unlimited posts.</p>
+          <p>You have posted {issueCount} out of {MAX_FREE_ISSUES} issues. Please <button onClick={() => navigate('/dashboard/citizenprofile')} className="btn btn-sm btn-link p-0">Subscribe to Premium</button> for unlimited posts.</p>
         </div>
       )}
 
@@ -161,7 +161,7 @@ function PostIssue() {
             </fieldset>
             <fieldset className="fieldset">
               <label className="label text-gray-100 font-semibold">Issue description</label>
-              <textarea className="input  w-full text-gray-800 font-medium mb-3" placeholder="Issue description" {...register('description')} />
+              <textarea className="input  w-full text-gray-800 py-3 font-medium mb-3" placeholder="Issue description" {...register('description')} />
             </fieldset>
           </div>
         </div>

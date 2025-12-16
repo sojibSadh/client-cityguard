@@ -12,7 +12,7 @@ function PaymentSuccessSub() {
     if (sessionId) {
       axiosS.patch(`/payment-success-sub?session_id=${sessionId}`)
         .then(res => {
-          console.log(res.data);
+          console.log(res);
           setPaymentInfo({
             issueId: res.data.issueId,
             issueEmail: res.data.issueEmail,

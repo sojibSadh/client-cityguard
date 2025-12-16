@@ -2,17 +2,19 @@ import React from 'react'
 import useAuth from '../../../hooks/useAuth'
 import { useNavigate } from 'react-router';
 import useAxiosS from '../../../hooks/useAxiousS';
+import toast from 'react-hot-toast';
 
 function SocialLogin() {
     const axiosS = useAxiosS() ;
     const { signInGoogle } = useAuth();
-       const navigate = useNavigate() ;
+       const navigate = useNavigate();
 
     const handleGoogleSign = () => {
+        toast.loading("Creating user...", { id: "create-user" });
         signInGoogle()
             .then(result => {
                 navigate('/')
-                console.log(result.user)
+
                 const userInfo = {
                     email: result.user.email,
                     displayName: result.user.displayName,
@@ -20,6 +22,7 @@ function SocialLogin() {
                 }
                 axiosS.post('/users', userInfo)
                 .then(res => {
+                    toast.success('SuccessFull create your Account', { id: "create-user" })
                     navigate(location.state || "/")
                 })
             })

@@ -212,7 +212,7 @@ export default function IssuesDetails() {
                     .then((res) => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire("Removed!", "Your issue has been deleted.", "success");
-                            navigate('/all-issues'); // Redirect after deletion
+                            navigate('/dashboard/my-issue'); // Redirect after deletion
                         }
                     })
                     .catch(() => Swal.fire("Error", "Failed to remove issue.", "error"));

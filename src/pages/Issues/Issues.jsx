@@ -70,7 +70,7 @@ export default function Issues() {
     return (
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8  min-h-screen">
             <h1 className="text-center pb-8">
-                <span  className='md:text-4xl' role="img" aria-label="issues">🚨 </span>
+                <span className='md:text-4xl' role="img" aria-label="issues">🚨 </span>
                 <span className='title'>  All Community Issues </span>
             </h1>
 
@@ -120,7 +120,7 @@ export default function Issues() {
             {/* --- Issue Cards --- */}
             {
                 !isLoading ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid md:grid-cols-3  gap-6">
                         {data.map((issue) => {
                             const hasUpvoted = issue.upvotedUsers?.includes(user?.email);
 

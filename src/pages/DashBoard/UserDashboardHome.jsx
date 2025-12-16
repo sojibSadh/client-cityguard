@@ -3,11 +3,12 @@ import useAxiosS from '../../hooks/useAxiousS'
 import { useQuery } from '@tanstack/react-query';
 import { Legend, Pie, PieChart, Tooltip } from 'recharts';
 import useAuth from '../../hooks/useAuth';
+import { Bars } from 'react-loader-spinner';
 
 function UserDashboardHome() {
     const { user } = useAuth();
     const axiosS = useAxiosS();
-    const { data: deliveryStats = [] } = useQuery({
+    const { data: deliveryStats = [], isLoading } = useQuery({
         queryKey: ['delivery-status-stats'],
         queryFn: async () => {
             const res = await axiosS.get(`/issuesCitizen/status/stats?email=${user.email}`);
@@ -21,6 +22,16 @@ function UserDashboardHome() {
             return { name: item.status, value: item.count }
         })
     }
+
+    if (isLoading) return <div className='flex justify-center items-center h-screen'><Bars
+    height="40"
+    width="40"
+    color="#4fa94d"
+    ariaLabel="bars-loading"
+    wrapperStyle={{}}
+    wrapperClass=""
+    visible={true}
+  /></div>
 
     return (
         <div>

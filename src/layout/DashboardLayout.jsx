@@ -15,11 +15,11 @@ import {
 } from 'react-icons/fa';
 import useAuth from '../hooks/useAuth';
 import { CgProfile } from 'react-icons/cg';
+import { Bars } from 'react-loader-spinner';
 
 
 function DashboardLayout() {
-    const { user, logOut } = useAuth();
-    console.log(user.photoURL);
+    const { user, logOut, loading } = useAuth();
     const linkClasses = ({ isActive }) =>
         `flex items-center gap-3 p-3 text-base font-medium transition duration-300 ease-in-out ${isActive
             ? 'bg-primary text-white hover:bg-primary-focus'
@@ -28,7 +28,18 @@ function DashboardLayout() {
 
     const staticLinkClasses = "flex items-center gap-3 p-3 text-base font-medium transition duration-300 ease-in-out text-base-content hover:bg-base-300";
     const { role } = useRole();
-    console.log(role);
+
+    if (loading) {
+        return <div className='flex justify-center items-center h-screen'><Bars
+            height="40"
+            width="40"
+            color="#4fa94d"
+            ariaLabel="bars-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+        /></div>
+    }
     return (
         <div>
             <div className="drawer lg:drawer-open max-w-[1400px] mx-auto">
@@ -67,7 +78,7 @@ function DashboardLayout() {
                                     </li>
                                     <li >
                                         <NavLink >
-                                           All Issues
+                                            All Issues
                                         </NavLink>
                                     </li>
 
@@ -88,8 +99,6 @@ function DashboardLayout() {
                             </div>
                         </div>
                     </nav>
-
-
 
                     {/* Page content here */}
                     <Outlet > </Outlet>
@@ -231,9 +240,6 @@ function DashboardLayout() {
                                 </>
                             )}
                         </ul>
-
-                        {/* 2nd  */}
-
                     </div>
                 </div>
             </div>

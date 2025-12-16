@@ -12,7 +12,7 @@ const AdminAllIssues = () => {
         queryKey: ["admin-issues"],
         queryFn: async () => {
             const res = await axiosS.get("/admin/issues");
-            return res.data; // Ensure you are returning the array of issues
+            return res.data; 
         }
     });
 

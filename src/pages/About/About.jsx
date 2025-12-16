@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useAxiosS from "../../hooks/useAxiousS";
+import { Bars } from "react-loader-spinner";
+
+
 
 export default function About() {
+  const [loading, setLoading] = useState(true);
+  const axiosS = useAxiosS();
+
+  useEffect(() => {
+    axiosS.get('/feature-issues')
+      .then(data => {
+        setLoading(false);
+
+      })
+      .catch(err => {
+        // console.error(err);
+      });
+  }, [axiosS]);
+
+  if (loading) {
+    return <div className='flex justify-center items-center h-screen'><Bars
+      height="40"
+      width="40"
+      color="#4fa94d"
+      ariaLabel="bars-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+    /></div>
+  }
+
   return (
-    <section className="bg-white min-h-screen py-20">
+    <section className="bg-[#231611] min-h-screen py-20">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Header */}
@@ -10,28 +40,28 @@ export default function About() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#FF7A00] mb-4">
             About Our Platform
           </h1>
-          <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+          <p className="text-gray-300 max-w-3xl mx-auto text-lg">
             A smart, transparent, and citizen-driven solution to report,
             manage, and resolve city issues efficiently.
           </p>
         </div>
 
         {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center ">
 
           {/* Left Text */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-800">
+            <h2 className="text-2xl font-semibold text-orange-600">
               Why We Built This Platform
             </h2>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               Cities face countless daily issues such as damaged roads,
               garbage overflow, drainage problems, and electricity failures.
               Unfortunately, many of these problems go unnoticed or take too
               long to resolve due to lack of proper communication.
             </p>
 
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               Our platform bridges the gap between citizens, administrators,
               and staff by providing a single, transparent system where
               issues can be reported, tracked, prioritized, and resolved
@@ -40,12 +70,12 @@ export default function About() {
           </div>
 
           {/* Right Card */}
-          <div className="card border border-orange-100 shadow-lg">
+          <div className="card border border-orange-900 shadow-lg">
             <div className="card-body">
               <h3 className="text-xl font-semibold text-[#FF7A00] mb-2">
                 Our Mission
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-400 mb-4">
                 To empower citizens and authorities with a modern digital
                 platform that ensures faster issue resolution and a better
                 urban living experience.
@@ -54,7 +84,7 @@ export default function About() {
               <h3 className="text-xl font-semibold text-[#FF7A00] mb-2">
                 Our Vision
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Building smarter cities through transparency, accountability,
                 and technology-driven governance.
               </p>
@@ -65,19 +95,19 @@ export default function About() {
 
         {/* Bottom Section */}
         <div className="mt-16 text-center">
-          <div className="stats shadow border border-orange-100">
+          <div className="stats shadow-xl shadow-gray-600 border border-orange-100">
             <div className="stat">
-              <div className="stat-title">Reported Issues</div>
+              <div className="stat-title text-gray-300">Reported Issues</div>
               <div className="stat-value text-[#FF7A00]">5K+</div>
             </div>
 
             <div className="stat">
-              <div className="stat-title">Resolved Issues</div>
+              <div className="stat-title text-gray-300">Resolved Issues</div>
               <div className="stat-value text-[#FF7A00]">4.5K+</div>
             </div>
 
             <div className="stat">
-              <div className="stat-title">Active Staff</div>
+              <div className="stat-title text-gray-300">Active Staff</div>
               <div className="stat-value text-[#FF7A00]">300+</div>
             </div>
           </div>

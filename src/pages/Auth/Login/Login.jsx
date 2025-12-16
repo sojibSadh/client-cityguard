@@ -26,7 +26,7 @@ function Login() {
     }
 
     return (
-        <div className='h-full py-10  gap-6'>
+        <div className='h-full min-h-screen py-10  gap-6'>
             <div>
                 <img className='w-[250px] mx-auto' src={Online} alt="" />
             </div>

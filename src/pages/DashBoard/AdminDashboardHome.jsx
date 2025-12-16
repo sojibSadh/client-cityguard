@@ -2,10 +2,11 @@ import React from 'react'
 import useAxiosS from '../../hooks/useAxiousS'
 import { useQuery } from '@tanstack/react-query';
 import { Legend, Pie, PieChart, Tooltip } from 'recharts';
+import { Bars } from 'react-loader-spinner';
 
 function AdminDashboardHome() {
     const axiosS = useAxiosS();
-    const { data: deliveryStats = [] } = useQuery({
+    const { data: deliveryStats = [], isLoading } = useQuery({
         queryKey: ['delivery-status-stats'],
         queryFn: async () => {
             const res = await axiosS.get('/issues/status/stats');
@@ -16,12 +17,22 @@ function AdminDashboardHome() {
 
     const getPieChartData = data => {
         return data.map(item => {
-           return { name: item.status, value: item.count  }})
+            return { name: item.status, value: item.count }
+        })
     }
 
+
+    if (isLoading) return <div className='flex justify-center items-center h-screen'><Bars
+        height="40"
+        width="40"
+        color="#4fa94d"
+        ariaLabel="bars-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+    /></div>
     return (
         <div>
-
             <div className="mt-5 md:ml-5 grid gap-6  md:grid-cols-3">
                 {
                     deliveryStats.map((stat, index) => <div key={index} className="stat bg-gray-700 place-items-center rounded-2xl shadow-md shadow-primary ">
@@ -33,7 +44,7 @@ function AdminDashboardHome() {
 
             </div>
             <div className='md:ml-[30%] text-center'>
-                <PieChart style={{  maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
+                <PieChart style={{ maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
                     <Pie
                         dataKey="value"
                         startAngle={180}
@@ -46,8 +57,8 @@ function AdminDashboardHome() {
                         label
                         isAnimationActive={true}
                     />
-                    <Legend/>
-                    <Tooltip/>
+                    <Legend />
+                    <Tooltip />
                 </PieChart>
             </div>
 

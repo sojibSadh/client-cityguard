@@ -3,12 +3,13 @@ import useAxiosS from '../../hooks/useAxiousS';
 import { useQuery } from '@tanstack/react-query';
 import { Legend, Pie, PieChart, Tooltip } from 'recharts';
 import useAuth from '../../hooks/useAuth';
+import { Bars } from 'react-loader-spinner';
 
 function StaffDashboardHome() {
     const { user } = useAuth();
     const axiosS = useAxiosS();
 
-    const { data: stats = {} } = useQuery({
+    const { data: stats = {}, isLoading } = useQuery({
         queryKey: ['staff-dashboard-stats'],
         queryFn: async () => {
             const res = await axiosS.get(`/issuesStaff/status/stats?email=${user.email}`);
@@ -20,6 +21,16 @@ function StaffDashboardHome() {
         name: item.status,
         value: item.count
     })) || [];
+
+    if (isLoading) return <div className='flex justify-center items-center h-screen'><Bars
+        height="40"
+        width="40"
+        color="#4fa94d"
+        ariaLabel="bars-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+    /></div>
 
     return (
         <div>

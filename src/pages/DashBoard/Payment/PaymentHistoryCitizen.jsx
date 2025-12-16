@@ -2,17 +2,28 @@ import React from 'react'
 import useAxiousS from '../../../hooks/useAxiousS';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../hooks/useAuth';
+import { Bars } from 'react-loader-spinner';
 function PaymentHistoryCitizen() {
   const { user } = useAuth();
   const axiosSecure = useAxiousS();
 
-  const { data: payments = [] } = useQuery({
-    queryKey: ['payments', user.email],
+  const { data: payments = [], isLoading } = useQuery({
+    queryKey: ['payments',  user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/payments?email=${user.email}`)
       return res.data
     }
   })
+
+  if (isLoading) return <div className='flex justify-center items-center h-screen'><Bars
+  height="40"
+  width="40"
+  color="#4fa94d"
+  ariaLabel="bars-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+/></div>
 
   return (
     <div>

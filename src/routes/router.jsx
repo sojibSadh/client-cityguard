@@ -32,6 +32,7 @@ import AdminProfile from "../pages/DashBoard/Admin/AdminProfile";
 import CitizenProfile from "../pages/DashBoard/Citizen/CitizenProfile";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
+import NotFound from "../pages/404/NotFound";
 
 
 
@@ -160,5 +161,9 @@ export const router = createBrowserRouter([
         element: <AdminRoute>  <PaymentHistory /> </AdminRoute>
       },
     ]
+  }
+  , {
+    path: "*",
+    element: <NotFound/>
   }
 ]);

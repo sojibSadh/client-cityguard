@@ -1,4 +1,4 @@
-import React, { Profiler, useContext } from 'react';
+import React, { Profiler, useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../../hooks/useAuth';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -7,24 +7,27 @@ import axios from 'axios';
 import useAxiosS from '../../../hooks/useAxiousS';
 import Online from '../../../assets/login.png';
 import toast from 'react-hot-toast';
+import { Bars } from 'react-loader-spinner';
 
 function Register() {
+    const [loading, setLoading] = useState(false);
     const axiosS = useAxiosS();
     const location = useLocation();
     const navigate = useNavigate();
     const { registerUser, updateUserProfile2 } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-
+    console.log(loading);
     const handleRegister = (data) => {
         // console.log('after', data);
         // take img from photo upload 1
         const profileImg = data.photo[0];
-        console.log('profileImg', profileImg);
 
+        toast.loading("Creating user...", { id: "create-user" });
         // 2 register user to firebase email and password
         registerUser(data.email, data.password)
             .then(res => {
+                setLoading(true);
                 //store the image and get the photo url
                 const formData = new FormData();
                 formData.append('image', profileImg)
@@ -43,7 +46,7 @@ function Register() {
                         axiosS.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    toast.success('SuccessFull create your Account')
+                                    toast.success('SuccessFull create your Account', { id: "create-user" })
                                 }
                             })
 
@@ -54,7 +57,6 @@ function Register() {
                         };
                         updateUserProfile2(userProfile)
                             .then(res => {
-                                console.log('update profile');
                                 navigate(location.state || "/")
                             })
                             .catch(err => console.log(err))
@@ -63,14 +65,14 @@ function Register() {
 
             })
             .catch(err => {
-                toast.error('Your  account not create ')
+                toast.error('Your Account did not  Created ')
 
             })
     }
 
 
     return (
-        <div>
+        <div className='min-h-screen'>
             <div>
                 <img className='w-[250px] mx-auto' src={Online} alt="" />
             </div>
@@ -80,25 +82,25 @@ function Register() {
             <div className='max-w-lg mx-auto shadow-2xl shadow-gray-500 p-5 rounded-2xl'>
                 <form className='w-full -mb-4' onSubmit={handleSubmit(handleRegister)}>
                     <fieldset className="fieldset">
-                        <label  className="label text-gray-100 font-semibold">Photo</label>
+                        <label className="label text-gray-100 font-semibold">Photo</label>
                         <input type="file" {...register('photo', { required: true })} className="file-input border text-gray-800 font-medium w-full mb-3" placeholder="Photo" />
                         {errors.photo?.type === "required" && (
                             <p role="alert">Photo is required</p>
                         )}
 
-                        <label  className="label text-gray-100 font-semibold">Name</label>
+                        <label className="label text-gray-100 font-semibold">Name</label>
                         <input type="text" {...register('name', { required: true })} className="input w-full text-gray-800 font-medium mb-3" placeholder="Name" />
                         {errors.name?.type === "required" && (
                             <p role="alert">Name is required</p>
                         )}
 
-                        <label  className="label text-gray-100 font-semibold">Email</label>
+                        <label className="label text-gray-100 font-semibold">Email</label>
                         <input type="email" {...register('email', { required: true })} className="input w-full text-gray-800 font-medium mb-3" placeholder="Email" />
                         {errors.email?.type === "required" && (
                             <p role="alert">Email is required</p>
                         )}
 
-                        <label  className="label text-gray-100 font-semibold">Password</label>
+                        <label className="label text-gray-100 font-semibold">Password</label>
                         <input type="password"  {...register('password', {
                             required: true,
                             minLength: 6,
@@ -116,11 +118,15 @@ function Register() {
                         )}
 
                         <div><a className="link link-hover text-orange-600 font-semibold">Forgot password?</a></div>
-                        <button className="btn-cusPrimary rounded-md py-3 mb-3">Register</button>
+                        {loading ? (
+                            <button className="btn-cusPrimary rounded-md py-3 mb-3 flex justify-center gap-3"> Updating<Bars height="20" width="20" /></button>
+                        ) : (
+                            <button className="btn-cusPrimary rounded-md py-3 mb-3">Register</button>
+                        )}
                     </fieldset>
                 </form>
                 <SocialLogin />
-                <p className='text-sm text-center'>Already have an account <NavLink className='text-blue-600' to='/login'> Login </NavLink>    </p>
+                <p className='text-sm text-center'>Already have an account <NavLink className='text-blue-600' to='/login'> Login </NavLink> </p>
             </div>
 
         </div>

@@ -33,20 +33,24 @@ const AdminProfile = () => {
             .finally(() => setLoading(false));
     };
 
-    if (statusLoading) {
-        return <div className="max-w-3xl mx-auto px-4 py-16 text-center">Loading Profile...</div>;
-    }
+
+    if (statusLoading) return <div className='flex justify-center items-center h-screen'><Bars
+        height="40"
+        width="40"
+        color="#4fa94d"
+        ariaLabel="bars-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+    /></div>
+
 
     return (
         <div className="max-w-3xl mx-auto px-4 py-16">
             <h2 className="title mb-6 text-center">Welcome To Your Profile  </h2>
-
             <div className="bg-[#151515] dark:bg-[#1e2939]  shadow-xl shadow-orange-900 rounded-2xl p-8 md:flex flex-col md:flex-row items-center gap-8">
-
                 {/* Info + Form */}
                 <form onSubmit={handleUpdate} className="profile md:flex-1 space-y-4">
-                    {/* ... (Name, Photo URL, Email ইনপুট ফিল্ডস আপনার আগের মতোই থাকবে) ... */}
-                    {/* User Photo + Premium Status */}
                     <div className="w-48 h-48 rounded-full mx-auto overflow-hidden border-2 border-orange-600 relative">
                         <img
                             src={user?.photoURL || "https://via.placeholder.com/150"}
@@ -80,7 +84,7 @@ const AdminProfile = () => {
                             type="email"
                             value={user?.email}
                             readOnly
-                           className="w-full border border-primary hover:border-orange-600 outline-0 rounded-lg p-3 cursor-not-allowed"
+                            className="w-full border border-primary hover:border-orange-600 outline-0 rounded-lg p-3 cursor-not-allowed"
                         />
                     </div>
 

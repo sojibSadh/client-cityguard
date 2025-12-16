@@ -3,13 +3,14 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosS from '../../../hooks/useAxiousS';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import { Bars } from 'react-loader-spinner';
 
 function AssignIssue() {
     const axiosS = useAxiosS();
     const [selectedStaff, setSelectedStaff] = useState("");
 
     // Load all issues (pending or unassigned)
-    const { data: issues = [], refetch: refetchIssues } = useQuery({
+    const { data: issues = [], isLoading, refetch: refetchIssues } = useQuery({
         queryKey: ['issues'],
         queryFn: async () => {
             const res = await axiosS.get('/admin/issues');
@@ -25,10 +26,6 @@ function AssignIssue() {
             return res.data;
         }
     });
-
-
-    console.log(staff);
-    console.log(selectedStaff);
 
 
     const handleAssign = async (issueId) => {
@@ -59,6 +56,16 @@ function AssignIssue() {
         }
     };
 
+
+    if (isLoading) return <div className='flex justify-center items-center h-screen'><Bars
+        height="40"
+        width="40"
+        color="#4fa94d"
+        ariaLabel="bars-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+    /></div>
 
     return (
         <div className="p-6">
