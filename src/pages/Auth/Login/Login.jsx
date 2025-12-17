@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from "react-hook-form"
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa6";
 import useAuth from '../../../hooks/useAuth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { NavLink, useLocation, useNavigate } from 'react-router';
@@ -8,6 +9,7 @@ import toast from 'react-hot-toast';
 
 
 function Login() {
+    const [showPass, setShowPass] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const { signInUser } = useAuth();
@@ -42,23 +44,31 @@ function Login() {
                             <p role="alert">Email is required</p>
                         )}
 
-                        <label className="label text-gray-100 font-semibold">Password</label>
-                        <input type="password"  {...register('password', {
-                            required: true,
-                            minLength: 6,
-                            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+                        <div className='relative'>
+                            <label className="label text-gray-100 font-semibold">Password</label>
+                            <input type={showPass ? "text" : "password"}  {...register('password', {
+                                required: true,
+                                minLength: 6,
+                                pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
-                        })} className="input w-full my-3 text-gray-800 font-medium" placeholder="Password" />
-                        {errors.password?.type === "required" && (
-                            <p role="alert">PassWord is required</p>
-                        )}
-                        {errors.password?.type === "minLength" && (
-                            <p role="alert">PassWord must be 6 character or longer </p>
-                        )}
-                        {errors.password?.type === "pattern" && (
-                            <p role="alert">password Must ar least one uppercase, at least one lowercase, at least one number, at least special characters </p>
-                        )}
-
+                            })} className="input w-full my-3 text-gray-800 font-medium" placeholder="Password" />
+                            <button
+                                type="button"
+                                onClick={() => setShowPass(!showPass)}
+                                className="absolute right-6 top-11 text-purple-600"
+                            >
+                                {showPass ? <FaEyeSlash /> : <FaEye />}
+                            </button>
+                            {errors.password?.type === "required" && (
+                                <p role="alert">PassWord is required</p>
+                            )}
+                            {errors.password?.type === "minLength" && (
+                                <p role="alert">PassWord must be 6 character or longer </p>
+                            )}
+                            {errors.password?.type === "pattern" && (
+                                <p role="alert">password Must ar least one uppercase, at least one lowercase, at least one number, at least special characters </p>
+                            )}
+                        </div>
                         <div><a className="link link-hover font-semibold text-orange-600">Forgot password?</a></div>
                         <button className="btn-cusPrimary rounded-md py-3 ">Login</button>
                     </fieldset>
