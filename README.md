@@ -11,9 +11,9 @@
 - Admin Email: sajib99design@gmail.com
 - Admin Password: Sajib@1234
 
-- Live Site Link (Client):
-- Client GitHub Repository:
-- Server GitHub Repository:
+- Live Site Link (Client): https://cityguard1.netlify.app
+- Client GitHub Repository: https://github.com/sojibSadh/client-cityguard.git
+- Server GitHub Repository: https://github.com/sojibSadh/cityguard-server.git
 
 - One Staff Email: staff@staff.com
 - One Staff Password : Sajib@1234
