@@ -55,7 +55,9 @@ const CitizenProfile = () => {
     return (
         <div className="max-w-3xl mx-auto px-4 py-16">
             <h2 className="title mb-6 text-center">Welcome To Your Profile  </h2>
-            <button onClick={handleSub} className="text-center btn mx-auto"> Sub </button>
+            <div className="text-center pb-5">
+                <button onClick={handleSub} className="text-center btn-cusPrimary shadow-lg shadow-gray-700 py-3 px-[15%] text-[18px]  rounded-full font-bold mx-auto"> subscription </button>
+            </div>
             <div className="bg-[#151515] dark:bg-[#1e2939]  shadow-xl shadow-orange-900 rounded-2xl p-8 md:flex flex-col md:flex-row items-center gap-8">
 
                 {/* Info + Form */}
