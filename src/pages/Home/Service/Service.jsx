@@ -1,7 +1,6 @@
 import React, { use, useContext } from "react";
 // import services from "../../../assets/services.json"
 
-// console.log(services);
 const Service = ({ servicePromise }) => {
     const services = use(servicePromise);
 

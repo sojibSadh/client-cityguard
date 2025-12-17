@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import useAuth from './useAuth';
 
 const axiosS = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://city-guard-server.vercel.app'
 });
 
 

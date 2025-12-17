@@ -24,7 +24,6 @@ function NavBar() {
     }, [theme])
 
     const roleUser = role?.role;
-    console.log(roleUser)
     const handleTheme = (checked) => {
         setTheme(checked ? "dark" : "light")
     }

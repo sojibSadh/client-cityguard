@@ -32,9 +32,6 @@ function Brand() {
           640: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
-
-
-
         modules={[Autoplay, Pagination]}
         className="mySwiper my-2"
       >

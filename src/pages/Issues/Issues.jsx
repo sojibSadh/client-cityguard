@@ -90,6 +90,16 @@ export default function Issues() {
                 >
                     <option value="">All Categories</option>
                     <option value="Sanitation">Sanitation</option>
+                    <option value="Air Pollution">Air Pollution</option>
+                    <option value="Noise Pollution">Noise Pollution</option>
+                    <option value="Drainage">Drainage</option>
+                    <option value="Public Health">Public Health</option>
+                    <option value="Public Utilities">Public Utilities</option>
+                    <option value="Infrastructure">Infrastructure</option>
+                    <option value="Drainage">Drainage</option>
+                    <option value="Public Safety">Public Safety</option>
+                    <option value="Traffic">Traffic</option>
+                    <option value="Waste Management">Waste Management</option>
                     <option value="Utilities">Utilities</option>
                     <option value="Traffic">Traffic</option>
                     <option value="Noise Pollution">Noise Pollution</option>

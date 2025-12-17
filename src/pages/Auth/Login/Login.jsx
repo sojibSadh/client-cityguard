@@ -10,7 +10,6 @@ import toast from 'react-hot-toast';
 function Login() {
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
     const { signInUser } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const handleLogin = (data) => {

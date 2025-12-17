@@ -23,6 +23,7 @@ export default function MyIssue() {
 
     const { data, isLoading, refetch } = useQuery({
         queryKey: ['all-issues', category, status, priority, search, page],
+        enabled: !!email, 
         queryFn: async () => {
             const res = await axiosS.get('/my-issues-email', {
                 params: { email, category, status, priority, search, page }
@@ -33,8 +34,6 @@ export default function MyIssue() {
         }
 
     });
-    console.log(data);
-
     const handleUpvote = async (issueId, reporterEmail, hasUpvoted) => {
         if (!user) return window.location.href = '/login';
         if (user.email === reporterEmail) return toast.success("You can't upvote your own issue.");

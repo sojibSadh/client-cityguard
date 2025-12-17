@@ -17,12 +17,10 @@ function UserManegement() {
             return res.data;
         }
     });
-
     const handleMakeUser = user => {
         const roleInfo = { role: 'staff', workStatus: "available" };
         axiosS.patch(`/users/${user._id}/role`, roleInfo)
             .then(res => {
-                console.log(res.data)
                 if (res.data.modifiedCount) {
                     refetch()
                     Swal.fire({
@@ -37,10 +35,8 @@ function UserManegement() {
 
     const handleRemoveUser = user => {
         const roleInfo = { role: 'citizen', workStatus: "free" };
-        console.log(user);
         axiosS.patch(`/users/${user._id}/role`, roleInfo)
             .then(res => {
-                console.log(res.data)
                 if (res.data.modifiedCount) {
                     refetch()
                     Swal.fire({
@@ -57,7 +53,6 @@ function UserManegement() {
         const blockInfo = { blocked: true, workStatus: "not-available"};
         axiosS.patch(`/users/${user._id}/block`, blockInfo)
             .then(res => {
-                console.log(res.data)
                 if (res.data.modifiedCount) {
                     refetch()
                     Swal.fire({
@@ -71,22 +66,7 @@ function UserManegement() {
     }
 
 
-
-    // if (isLoading) {
-    //   return  <div className='flex justify-center items-center h-screen'><Bars
-    //         height="40"
-    //         width="40"
-    //         color="#4fa94d"
-    //         ariaLabel="bars-loading"
-    //         wrapperStyle={{}}
-    //         wrapperClass=""
-    //         visible={true}
-    //     /></div>
-    // }
-
-    const citizens = users.filter(user => user.role === "citizen");
-    // console.log(citizens);
-
+    const citizens = users.filter(user => user.role === "citizen");;
 
     return (
         <>

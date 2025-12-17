@@ -9,8 +9,6 @@ function Payment() {
     const navigate = useNavigate();
     const { parcelId } = useParams();
     const axiosS = useAxiousS();
-    console.log(parcelId);
-
     const { data: parcel, isLoading } = useQuery({
         queryKey: ['parcels', parcelId],
         queryFn: async () => {
@@ -28,8 +26,6 @@ function Payment() {
         };
 
         const res = await axiosS.post('/create-checkout-session', paymentInfo);
-        // console.log(res.data);
-        // navigate('/google.com');
         window.location.href = res.data.url
     }
 

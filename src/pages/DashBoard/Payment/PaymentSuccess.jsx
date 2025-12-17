@@ -12,7 +12,6 @@ function PaymentSuccess() {
     if (sessionId) {
       axiosS.patch(`/payment-success?session_id=${sessionId}`)
         .then(res => {
-          console.log(res.data);
           setPaymentInfo({
             issueId: res.data.issueId,
             issueEmail: res.data.issueEmail,

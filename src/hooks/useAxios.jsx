@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 
 const axiosS = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://city-guard-server.vercel.app'
 });
 
 function useAxios() {

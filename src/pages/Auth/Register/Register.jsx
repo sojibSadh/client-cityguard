@@ -17,9 +17,7 @@ function Register() {
     const { registerUser, updateUserProfile2 } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    console.log(loading);
     const handleRegister = (data) => {
-        // console.log('after', data);
         // take img from photo upload 1
         const profileImg = data.photo[0];
 
@@ -32,7 +30,6 @@ function Register() {
                 const formData = new FormData();
                 formData.append('image', profileImg)
                 // const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_imageHost_key}`;
-                // console.log("image_API_URL", image_API_URL);
 
                 axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_imageHost_key}`, formData)
                     .then(res => {

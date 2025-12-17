@@ -7,9 +7,6 @@ import Forviden from '../components/Forviden';
 function StaffRoute({ children }) {
     const { user, loading } = useAuth();
     const { role, roleLoading } = useRole();
-
-    console.log(role);
-
     if (loading || roleLoading) {
         return <div>
             <span className='loading loading-infinity loading-xl'> </span>
@@ -19,8 +16,6 @@ function StaffRoute({ children }) {
     if (role?.role !== 'staff') {
         return <Forviden/>
     }
-
-
     return children
 }
 

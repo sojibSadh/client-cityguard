@@ -1,13 +1,11 @@
 import React, { use } from 'react'
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Swiper CSS
 import "swiper/css";
 import { FaQuoteLeft } from 'react-icons/fa';
 
 function Review({ reviewPromise }) {
     const reviewData = use(reviewPromise);
-    console.log(reviewData);
     return (
         <div className="bg-[#D6D6D6]/10  dark:bg-[#D6D6D6]/30 py-20 rounded-2xl md:my-8">
             <div className="text-center mb-16">

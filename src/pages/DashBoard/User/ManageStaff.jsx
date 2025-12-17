@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
 import React, { useState } from 'react'
-
 import { FaFileShield, FaUserShield } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
 import { Bars } from 'react-loader-spinner';
@@ -9,7 +8,6 @@ import useAxiosS from '../../../hooks/useAxiousS';
 function ManageStaff() {
     const axiosS = useAxiosS();
     const [searchText, setSearchText] = useState('');
-
     const { data: staff = [], refetch, isLoading } = useQuery({
         queryKey: ['staff'],
         queryFn: async () => {
@@ -23,7 +21,6 @@ function ManageStaff() {
         const roleInfo = { role: 'staff', workStatus: "available" };
         axiosS.patch(`/users/${user._id}/role`, roleInfo)
             .then(res => {
-                console.log(res.data)
                 if (res.data.modifiedCount) {
                     refetch()
                     Swal.fire({
@@ -38,10 +35,8 @@ function ManageStaff() {
 
     const handleRemoveUser = user => {
         const roleInfo = { role: 'citizen', workStatus: "free" };
-        console.log(user);
         axiosS.patch(`/users/${user._id}/role`, roleInfo)
             .then(res => {
-                console.log(res.data)
                 if (res.data.modifiedCount) {
                     refetch()
                     Swal.fire({
@@ -58,7 +53,6 @@ function ManageStaff() {
         const blockInfo = { blocked: true, workStatus: "not-available" };
         axiosS.patch(`/users/${user._id}/block`, blockInfo)
             .then(res => {
-                console.log(res.data)
                 if (res.data.modifiedCount) {
                     refetch()
                     Swal.fire({
