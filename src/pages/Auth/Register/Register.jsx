@@ -89,7 +89,7 @@ function Register() {
                         )}
 
                         <label className="label text-gray-100 font-semibold">Name</label>
-                        <input type="text" {...register('name', { required: true })} className="input w-full text-gray-800 font-medium mb-3" placeholder="Name" />
+                        <input type="text" {...register('name', { required: true })} className="input w-full text-gray-500 font-medium mb-3" placeholder="Name" />
                         {errors.name?.type === "required" && (
                             <p role="alert">Name is required</p>
                         )}

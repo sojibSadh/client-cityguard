@@ -39,7 +39,7 @@ function Login() {
                 <form className='w-full' onSubmit={handleSubmit(handleLogin)}>
                     <fieldset className="fieldset">
                         <label className="label text-gray-100 font-semibold">Email</label>
-                        <input type="email"  {...register('email', { required: true })} className="input w-full my-3 text-gray-800 font-medium" placeholder="Email" />
+                        <input type="email"  {...register('email', { required: true })} className="input w-full my-3 text-gray-500 font-medium" placeholder="Email" />
                         {errors.email?.type === "required" && (
                             <p role="alert">Email is required</p>
                         )}
@@ -51,7 +51,7 @@ function Login() {
                                 minLength: 6,
                                 pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
-                            })} className="input w-full my-3 text-gray-800 font-medium" placeholder="Password" />
+                            })} className="input w-full my-3 text-gray-500 font-medium" placeholder="Password" />
                             <button
                                 type="button"
                                 onClick={() => setShowPass(!showPass)}

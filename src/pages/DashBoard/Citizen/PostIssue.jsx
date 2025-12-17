@@ -105,9 +105,9 @@ function PostIssue() {
       <h2 className='title text-center pt-7'>Send Post of Issue</h2>
 
       {isFreeLimitReached && (
-        <div className="alert alert-warning mb-6">
+        <div className="alert bg-orange-800 mb-6">
           <span className="font-bold">⚠️ Issue Limit Reached!</span>
-          <p>You have posted {issueCount} out of {MAX_FREE_ISSUES} issues. Please <button onClick={() => navigate('/dashboard/citizenprofile')} className="btn btn-sm btn-link p-0">Subscribe to Premium</button> for unlimited posts.</p>
+          <p>You have posted {issueCount} out of {MAX_FREE_ISSUES} issues. Please <button onClick={() => navigate('/dashboard/citizenprofile')} className="btn btn-sm   p-2">Subscribe to Premium</button> for unlimited posts.</p>
         </div>
       )}
 

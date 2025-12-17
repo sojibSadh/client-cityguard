@@ -23,6 +23,7 @@ import {
     Clock,
     Briefcase
 } from 'lucide-react';
+import { Bars } from 'react-loader-spinner';
 
 
 // --- Helper Functions for Timeline Details ---
@@ -136,7 +137,15 @@ export default function IssuesDetails() {
         return <p className="text-center mt-10">Please login to view this issue.</p>;
     }
 
-    if (isLoading) return <p className="text-center mt-10">Loading...</p>;
+    if (isLoading) return <div className='flex justify-center items-center h-screen'><Bars
+        height="40"
+        width="40"
+        color="#4fa94d"
+        ariaLabel="bars-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+    /></div>
     if (!issue) return <p className="text-center mt-10">Issue not found.</p>;
 
     const isOwner = user.email === issue.authorEmail;
