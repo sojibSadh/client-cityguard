@@ -11,9 +11,9 @@
 - Admin Email: sajib99design@gmail.com
 - Admin Password: Sajib@1234
 
-- Live Site Link (Client):
-- Client GitHub Repository:
-- Server GitHub Repository:
+- Live Site Link (Client): https://cityguard1.netlify.app
+- Client GitHub Repository: https://github.com/sojibSadh/client-cityguard.git
+- Server GitHub Repository: https://github.com/sojibSadh/cityguard-server.git
 
 - One Staff Email: staff@staff.com
 - One Staff Password : Sajib@1234
@@ -27,7 +27,7 @@
 **CityCare** is a modern, full-stack Public Infrastructure Issue Reporting System. It allows citizens to report real-life city problems (broken roads, street lights, water leakage, garbage overflow, damaged sidewalks, etc.), while Admins and Staff manage, track, assign, and resolve those issues efficiently.The main goal of this platform is to increase transparency, reduce response time, and simplify city service management.
 
 
-#  Live Preview 🌸
+#  Lives Preview 🌸
 - Client:  https://super-client-nu.vercel.app
 - Server:  https://super-server-mu.vercel.app
 
