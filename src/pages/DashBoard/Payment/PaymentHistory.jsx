@@ -47,7 +47,7 @@ function PaymentHistory() {
           {/* Table Body */}
           <tbody>
             {payments?.map(issue => (
-              <tr key={issue._id} className="hover:bg-base-100 transition-colors duration-200">
+              <tr key={issue._id} className="hover:bg-gray-700 transition-colors duration-200">
                 <td className="font-medium text-[16px]">{issue.trackingId}</td>
                 <td className='text-gray-300'>
                   {issue.issueEmail}

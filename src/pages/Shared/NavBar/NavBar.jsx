@@ -67,7 +67,7 @@ function NavBar() {
 
 
     return (
-        <div className="navbar max-w-[1400px] bg-gradient-to-r  from-[#161616c] via-primary to-[#161616]  mx-auto py-0 min-h-0 z-1 shadow-sm  glass-card ">
+        <div className="navbar sticky top-0 z-10 max-w-[1400px] bg-gradient-to-r  from-[#161616c] via-primary to-[#161616]  mx-auto py-0 min-h-0 z-1 shadow-sm  glass-card ">
             <div className=" flex justify-between items-center w-full">
                 <div className="flex items-center max-sm:justify-between  max-sm:w-[80%]">
                     <div className="dropdown">

@@ -12,7 +12,7 @@ function Banner() {
         <div className="overflow-hidden">
           <img
             src={bannerImg1}
-            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[450px] lg:h-screen"
+            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[550px] "
           />
           <p className="legend">Legend 1</p>
         </div>
@@ -20,7 +20,7 @@ function Banner() {
         <div className="overflow-hidden">
           <img
             src={bannerImg2}
-            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[450px] lg:h-screen"
+            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[550px] "
           />
           <p className="legend">Legend 2</p>
         </div>
@@ -28,7 +28,7 @@ function Banner() {
         <div className="overflow-hidden">
           <img
             src={bannerImg3}
-            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[450px] lg:h-screen"
+            className="w-full object-cover h-[200px] sm:h-[300px] md:h-[550px] "
           />
           <p className="legend">Legend 3</p>
         </div>
